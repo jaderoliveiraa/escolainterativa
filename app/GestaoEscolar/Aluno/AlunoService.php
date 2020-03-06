@@ -2,12 +2,12 @@
 
 namespace App\GestaoEscolar\Aluno;
 
-use Aluno;
+use AlunoRepository;
 
 class AlunoService
 {
     private alunoRepository;
-    public function __construct(alunoRepository $alunoRepository){
+    public function __construct(AlunoRepository $alunoRepository){
 
         this => alunoRepository = $alunoRepository;
 
