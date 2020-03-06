@@ -2,6 +2,8 @@
 
 namespace App\GestaoEscolar\Aluno;
 
+use Aluno;
+
 class AlunoRepository
 {
     private aluno;
