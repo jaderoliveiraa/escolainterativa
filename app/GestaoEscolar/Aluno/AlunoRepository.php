@@ -20,7 +20,7 @@ class AlunoRepository
     */
     public function __construct(Aluno $aluno){
 
-        $this -> aluno = $aluno;
+        $this->aluno = $aluno;
 
     }
 
