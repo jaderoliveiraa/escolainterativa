@@ -10,7 +10,7 @@ class AlunoService
 	*Instancia de AlunoRepository
 	* @var AlunoRepository
 	*/
-    private alunoRepository;
+    protected alunoRepository;
 
     /*
 	*Instancia de Classe AlunoService
@@ -20,7 +20,7 @@ class AlunoService
 
     public function __construct(AlunoRepository $alunoRepository){
 
-        this => alunoRepository = $alunoRepository;
+        $this -> alunoRepository = $alunoRepository;
 
     }
 
