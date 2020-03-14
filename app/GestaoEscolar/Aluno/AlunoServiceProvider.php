@@ -29,7 +29,7 @@ class AlunoServiceProvider extends ServiceProvider
     }
 
     /**
-     * Bootstrap services.
+     * Define your route model bindings, pattern filters, etc.
      *
      * @return void
      */

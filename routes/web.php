@@ -18,4 +18,6 @@ Route::get('/', function () {
 Route::get('/contato', function(){
 	return view("contato");
 });
-Route::resourse('/aluno', 'AlunoController');
+Route::get('/aluno', function(){
+	return view("AlunoController");
+});
