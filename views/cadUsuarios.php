@@ -76,7 +76,7 @@ include "menuPrincipal.php";
                             <label class="col-md-2 control-label" for="prependedtext">Senha <h11>*</h11></label>
                             <div class="col-md-5">
                                 <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-record"></i></span>
                                     <input id="prependedtext" name="prependedtext" class="form-control" placeholder="Senha" required="" type="password" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" >
                                 </div>
                             </div>
