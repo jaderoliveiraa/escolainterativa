@@ -47,14 +47,14 @@ include "menuPrincipal.php";
                     </div>
 
                     <!-- Text input-->
-
-                    <label class="col-md-1 control-label" for="Nome">Nascimento<h11>*</h11></label>  
+                    <div class="form-group">
+                    <label class="col-md-2 control-label" for="Nome">Nascimento<h11>*</h11></label>  
                     <div class="col-md-2">
                         <input id="dtnasc" name="dtnasc" placeholder="DD/MM/AAAA" class="form-control input-md" required="" type="text" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()">
                     </div>
 
                     <!-- Multiple Radios (inline) -->
-
+                    
                     <label class="col-md-1 control-label" for="radios">Sexo <h11>*</h11></label>
                     <div class="col-md-4"> 
                         <label required="" class="radio-inline" for="radios-0" >
@@ -182,68 +182,9 @@ include "menuPrincipal.php";
                     </div>
 
 
-                    <!-- Text input-->
+                   </div>
 
-                    <label class="col-md-1 control-label" for="profissao">Profissão<h11>*</h11></label>  
-                    <div class="col-md-4">
-                        <input id="profissao" name="profissao" type="text" placeholder="" class="form-control input-md" required="">
-
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-md-2 control-label" for="encaminhamento">Encaminhamento <h11>*</h11></label>
-                    <div class="col-md-4">
-                        <div class="input-group">
-                            <span class="input-group-addon">     
-                                <label class="radio-inline" for="radios-0">
-                                    <input type="radio" name="enc" id="enc" value="Nao" onclick="desabilita('enc_instituicao')" required>
-                                    Não
-                                </label> 
-                                <label class="radio-inline" for="radios-1">
-                                    <input type="radio" name="enc" id="enc" value="sim" onclick="habilita('enc_instituicao')">
-                                    Sim
-                                </label>
-                            </span>
-                            <input id="enc_instituicao" name="enc" class="form-control" type="text" placeholder="Instituição" >
-
-                        </div>
-
-                    </div>
-
-
-                    <label class="col-md-1 control-label" for="encaminhamento">Aluno FAP-Betim<h11>*</h11></label>
-                    <div class="col-md-4">
-                        <div class="input-group">
-                            <span class="input-group-addon">     
-                                <label class="radio-inline" for="radios-0">
-                                    <input type="radio" name="aluno" id="enc" value="Nao" required>
-                                    Não
-                                </label> 
-                                <label class="radio-inline" for="radios-1">
-                                    <input type="radio" name="aluno" id="enc" value="sim">
-                                    Sim
-                                </label>
-                            </span>
-                            <input id="enc" name="curso" class="form-control" type="text" placeholder="Curso" >
-
-                        </div>
-
-                    </div>
-
-
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-2 control-label" for="textinput">Como ficou sabendo da Clínica?</label>  
-                    <div class="col-md-4">
-                        <input id="textinput" name="textinput" placeholder="" class="form-control input-md" type="text">
-
-                    </div>
-
-                </div>
-
+                
 
                 <div id="newpost">
                     <div class="form-group">
