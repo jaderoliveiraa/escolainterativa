@@ -15,7 +15,7 @@ include "menuPrincipal.php";
 </head>
 <body>
 
-    <form class="form-horizontal">
+    <form class="form-horizontal" action="../controllers/controllerUsuarios.php">
         <fieldset>
             <div class="panel panel-primary">
                 <div class="panel-heading">Cadastro de Usuários</div>
