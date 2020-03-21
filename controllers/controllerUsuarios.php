@@ -1,21 +1,18 @@
 <?php
-require 'connect.php';
-
+require_once 'connect.php';
 $nome = $_POST['nome'];
+$telefone = $_POST['telefone'];
 $email = $_POST['email'];
 $senha = $_POST['senha'];
 
-$sql = "INSERT INTO tb_login SET nome = '$nome' , email = '$email', senha ='$senha'";
-$sql = $pdo->query($sql);
-if(isset($_POST['nome'] )>0){
-    echo "Usuário Inserido com Sucesso!";
+$sql = "INSERT INTO usuarios SET nome = '$nome' , telefone = '$telefone', email ='$email', senha='$senha' ";
+if($pdo->query($sql)){
+    echo "<script> alert('Usuário Inserido com Sucesso!'); window.location.href = '../views/cadUsuarios.php';</script>";
+    //header("location:../formularios/formcadastro.php");
     
-    header("location:usuarios.php");
-    sleep(2);
+    
 }else{
     echo "Não se pode inserir campos vazios!";
-    sleep(2);
     header("location:usuarios.php");
 }
-
 ?>

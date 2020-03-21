@@ -1,6 +1,5 @@
-
-<!------ Include the above in your HEAD tag ---------->
 <?php
+session_start();
 include "menuPrincipal.php";
 ?>
 <!DOCTYPE html>
@@ -15,89 +14,49 @@ include "menuPrincipal.php";
 </head>
 <body>
 
-    <form class="form-horizontal" action="../controllers/controllerUsuarios.php">
-        <fieldset>
+    <div class="container">
+
+        <div class="central">
+
+
+                </p><br>
+                <form action="../controllers/controllerUsuarios.php" method="POST">
+                    <fieldset>
             <div class="panel panel-primary">
-                <div class="panel-heading">Cadastro de Usuários</div>
+                <div class="panel-heading">Cadastro de Alunos</div>
 
                 <div class="panel-body">
                     <div class="form-group">
-                        <div class="form-group"> 
-
-                            <div class="col-md-4 control-label">
-                                <img id="logo" src="../img/logo.png"/>
-                            </div>
-
-                            <div class="col-md-4 control-label">
-                                <h1>Cadastro de Usuários</h1>
-
-                            </div>
-                        </div>
-
-                        <div class="col-md-11 control-label">
-                            <p class="help-block"><h11>*</h11> Campo Obrigatório </p>
-                        </div>
-                    </div>
-
-                    <!-- Text input-->
                     <div class="form-group">
-                        <label class="col-md-2 control-label" for="Nome">Nome<h11>*</h11></label>  
+                        <label class="col-md-2 control-label" for="Nome">Nome <h11>*</h11></label>  
                         <div class="col-md-8">
-                            <input id="Nome" name="Nome" placeholder="" class="form-control input-md" required="" type="text">
+                            <input class="form-control input-md" type="text" name="nome" placeholder="Digite o nome" required=""><br><br>
+                        </div>
+                    </div><br>
+                    
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="prependedtext">Telefone <h11>*</h11></label>
+                    <div class="col-md-2">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                    <input class="campo" id="tel" type="text" name="telefone" placeholder="XX XXXXX-XXXX" required="" type="text" maxlength="13" pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$"
+                                   OnKeyPress="formatar('## #####-####', this)">
                         </div>
                     </div>
-
-                    <!-- Text input-->
-                    <div class="form-group">
-
-                        <!-- Prepended text-->
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="prependedtext">Telefone <h11>*</h11></label>
-                            <div class="col-md-2">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                                    <input id="prependedtext" name="prependedtext" class="form-control" placeholder="XX XXXXX-XXXX" required="" type="text" maxlength="13" pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$"
-                                           OnKeyPress="formatar('## #####-####', this)">
-                                </div>
-                            </div>
-                        </div> 
-
-                        <!-- Prepended text-->
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="prependedtext">E-mail <h11>*</h11></label>
-                            <div class="col-md-5">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                                    <input id="prependedtext" name="prependedtext" class="form-control" placeholder="email@email.com" required="" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" >
-                                </div>
-                            </div>
+                </div> 
+                    <label>E-mail</label><br>
+                    <input class="campo" type="email" name="email" id="email" placeholder="exemplo@exemplo.com.br"required="" maxlength="30"><br><br>
+                    <label>Senha</label><br>
+                    <input class="campo" type="password" name="senha" id="email" placeholder="Digite sua senha"required="" maxlength="30"><br><br>
+                    <button class="botao" type="submit">Salvar</button>
+                </form>
+                </form>
+            </div>
+        </div>
+    </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="prependedtext">Senha <h11>*</h11></label>
-                            <div class="col-md-5">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-record"></i></span>
-                                    <input id="prependedtext" name="prependedtext" class="form-control" placeholder="Senha" required="" type="password" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" >
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <!-- Button (Double) -->
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="Cadastrar"></label>
-                            <div class="col-md-8">
-                                <button id="Cadastrar" name="Cadastrar" class="btn btn-success" type="Submit">Cadastrar</button>
-                                <button id="Cancelar" name="Cancelar" class="btn btn-danger" type="Reset">Cancelar</button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-
-        </fieldset>
-    </form>
+            </div>
+        </div>
 
 </body>
 </html>
