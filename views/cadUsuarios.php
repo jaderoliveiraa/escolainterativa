@@ -45,10 +45,10 @@ include "menuPrincipal.php";
                     </div>
                 </div> 
                     <label>E-mail</label><br>
-                    <input class="campo" type="email" name="email" id="email" placeholder="exemplo@exemplo.com.br"required="" maxlength="30"><br><br>
+                    <input class="form-control input-md" type="text" name="email" id="email" placeholder="exemplo@exemplo.com.br"required="" maxlength="30"><br><br>
                     <label>Senha</label><br>
-                    <input class="campo" type="password" name="senha" id="email" placeholder="Digite sua senha"required="" maxlength="30"><br><br>
-                    <button class="botao" type="submit">Salvar</button>
+                    <input class="form-control input-md" type="text" name="senha" id="email" placeholder="Digite sua senha"required="" maxlength="30"><br><br>
+                    <button class="buttom" type="submit">Salvar</button>
                 </form>
                 </form>
             </div>
