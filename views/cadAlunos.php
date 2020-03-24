@@ -22,17 +22,6 @@ include "menuPrincipal.php";
 
                 <div class="panel-body">
                     <div class="form-group">
-                        <!--
-                        <div class="form-group">   
-                        <div class="col-md-4 control-label">
-                            <img id="logo" src="img/logo.png"/>
-                        </div>
-                        <div class="col-md-4 control-label">
-                            <h1>Cadastro de Cliente</h1>
-                            
-                        </div>
-                        </div>
-                        -->
                         <div class="col-md-11 control-label">
                             <p class="help-block"><h11>*</h11> Campo Obrigatório </p>
                         </div>
