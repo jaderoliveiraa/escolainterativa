@@ -27,6 +27,7 @@ include "menuPrincipal.php";
                             <p class="help-block"><h11>*</h11> Campo Obrigatório </p>
                         </div>
                     </div>
+                </div>
 
                     <!-- Text input-->
                     <div class="form-group">
@@ -77,12 +78,11 @@ include "menuPrincipal.php";
                             <button id="Cancelar" name="Cancelar" class="btn btn-danger" type="Reset">Cancelar</button>
                         </div>
                     </div>                    
-                    </fieldtest>
-                    </form>
-                    </form>
-
+                    
                 </div>
-
+        </fieldset>
+                    
+    </form>
 
                 </body>
                 </html>
