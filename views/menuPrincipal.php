@@ -26,6 +26,9 @@ and open the template in the editor.
                         <a class="nav-link" href="#">Contato</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="../views/cadUsuarios.php">Usuários</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#">Relatórios</a>
                     </li>
                     <li class="nav-item dropdown">
