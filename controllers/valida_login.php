@@ -1,32 +1,44 @@
-<?php
-require 'connect.php';
-session_start();
+<html>
 
-try{
-    $pdo = new PDO("mysql:host=localhost;dbname=escola","falecom1", "18v0XaXg9k");
-    if(isset($_POST['email'])){
-        if(empty($_POST['email']) || empty($_POST['senha'])){
-            $message = '<label>Por favor preencha todos os dados</label>';
-        }else{
-            $query = "SELECT * FROM usuarios WHERE email= :email AND senha= :senha ";
-            $statement = $pdo->prepare($query);
-            $statement->execute(
-                    array(
-                        'email' => $_POST['email'],
-                        'senha' => $_POST['senha']
-                    )
-                    );
-            $count = $statement->rowCount();
-            if($count >0){
-                $_SESSION['email'] = $_POST['email'];
-                header("location:../views/inicial.php");
-            }else{
-                echo "alert( 'Usuário ou senha incorretos!' );";
-                header("location:../views/inicial.php");
+    <head>
+        <script src="../system/js/bootstrap.js" type="text/javascript"></script>
+        <script src="../system/js/bootstrap.min.js" type="text/javascript"></script>
+    </head>
+
+    <body>
+
+        <?php
+        require 'connect.php';
+        require '../system/usuarioClass.php';
+
+        if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['senha']) && !empty($_POST['senha'])) {
+            $email = addslashes($_POST['email']);
+            $senha = addslashes($_POST['senha']);
+
+            $usuario = new usuarioClass();
+
+            if ($usuario->login($email, $senha) == true) {
+                if (isset($_SESSION['id'])) {
+                    echo "<script>alert('Bem vindo ao sistema Escola Interativa!);</script>";
+                    header("location:../views/inicial.php");
+                } else {
+                    echo '<script>alert("Email ou Senha incorretos!");</script>';
+                    header("location:../index.php");
+                    
+                }
+            } else {
+                echo '<script>alert("Email ou Senha incorretos!");</script>';
+                header("location:../index.php");
+                
             }
+        } else {
+            echo '<script>alert("Email ou Senha incorretos!");</script>';
+            header("location:../index.php");
+            
         }
-    }
-} catch (Exception $ex) {
-    echo $ex->getMessage();
-}
-?>
+        ?>
+
+    </body>
+
+
+</html>
