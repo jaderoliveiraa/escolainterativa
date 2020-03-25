@@ -12,9 +12,11 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <nav class="navbar navbar-expand-lg navbar-light bg-info">
+            <a class="navbar-brand" href="#">
+                <img src="../img/logo.png" alt="Logo" style="width:40px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -23,23 +25,22 @@ and open the template in the editor.
                         <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contato</a>
+                        <a class="nav-link" href="#">Cadastro =></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../views/cadUsuarios.php">Usuários</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Relatórios</a>
+                        <a class="nav-link" href="#">Alunos</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Cadastro
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Alunos</a>
-                            <a class="dropdown-item" href="#">Professores</a>
-                            <a class="dropdown-item" href="#">Cursos</a>
-                        </div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Professores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Disciplinas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Relatórios</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
