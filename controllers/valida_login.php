@@ -18,7 +18,7 @@
             $usuario = new usuarioClass();
 
             if ($usuario->login($email, $senha) == true) {
-                if (isset($_SESSION['id'])) {
+                if (isset($_SESSION['email'])) {
                     echo "<script>alert('Bem vindo ao sistema Escola Interativa!);</script>";
                     header("location:../views/inicial.php");
                 } else {

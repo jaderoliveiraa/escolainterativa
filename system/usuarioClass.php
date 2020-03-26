@@ -15,7 +15,7 @@ class usuarioClass {
         if($sql->rowCount() > 0){
             $dado = $sql->fetch();
             
-            $_SESSION['id'] = $dado['id'];
+            $_SESSION['email'] = $dado['email'];
             
             return true;            
         }else{

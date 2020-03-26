@@ -2,6 +2,7 @@
 <!------ Include the above in your HEAD tag ---------->
 <?php
 include "menuPrincipal.php";
+session_start();
 ?>
 <!DOCTYPE html>
 <head>

@@ -1,0 +1,35 @@
+
+body{
+    margin: 0;
+}
+#menu ul {
+    padding:0px;
+    margin:0px;
+    background-color:#87CEEB;
+    list-style:none;
+    -webkit-box-shadow: 2px 2px 20px black;
+    -moz-box-shadow:    2px 2px 20px black;
+    box-shadow:         2px 2px 20px black;
+}
+
+#menu ul li {
+    display: inline;
+}
+
+#menu ul li a {
+    padding: 15px 20px;
+    display: inline-block;
+
+    /* visual do link */
+    background-color:#87CEEB;
+    color: #333;
+    text-decoration: none;
+    border-bottom:3px solid #87CEEB;
+}
+
+#menu ul li a:hover {
+    
+    background-color:#87CEEB;
+    color: #000;
+    border-bottom:3px solid #87CEEB;
+}
