@@ -1,6 +1,5 @@
 <?php
 require '../controllers/connect.php';
-//require '../views/menuPrincipal.php';
 require '../views/menuPrincipal.php';
 if (empty($_SESSION['email'])) {
     header("location:../index.php");
