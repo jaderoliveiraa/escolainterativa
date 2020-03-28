@@ -33,7 +33,7 @@ and open the template in the editor.
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                 <button class="dropdown-item" type="button"><a class="nav-link" href="../views/cadUsuarios.php">Usuários</a></button>
-                                <button class="dropdown-item" type="button"><a class="nav-link" href="#">Alunos</a></button>
+                                <button class="dropdown-item" type="button"><a class="nav-link" href="../views/cadAlunos.php">Alunos</a></button>
                                 <button class="dropdown-item" type="button"><a class="nav-link" href="#">Professores</a></button>
                                 <button class="dropdown-item" type="button"><a class="nav-link" href="#">Disciplinas</a></button>
                             </div>
