@@ -4,8 +4,6 @@ require '../views/menuPrincipal.php';
 if (empty($_SESSION['email'])) {
     header("location:../index.php");
 }
-
-
 ?>
 <html>
     <head>
@@ -13,8 +11,9 @@ if (empty($_SESSION['email'])) {
         <title></title>
     </head>
     <body>
+
         <?php
-        // put your code here
+// put your code here
         ?>
     </body>
 </html>
