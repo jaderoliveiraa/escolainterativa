@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 01-Abr-2020 às 23:09
+-- Tempo de geração: 01-Abr-2020 às 23:07
 -- Versão do servidor: 10.4.11-MariaDB
 -- versão do PHP: 7.4.3
 
@@ -55,31 +55,6 @@ CREATE TABLE `alunos` (
 INSERT INTO `alunos` (`id`, `nome`, `dataNasc`, `sexo`, `telefone`, `email`, `senha`, `cep`, `rua`, `num`, `bairro`, `cidade`, `estado`, `serie`, `dataCadastro`, `idUsuarios`, `situacao`) VALUES
 (1, 'menino teste', '2000-09-24', 'Masculino', '88 98841-5487', 'fulano@menino.com', '123456', '63034118', '25 de março', 321, 'Pirajá', 'Juazeiro', 'CE', 'Primeiro Ano', '2020-03-31 22:18:06', 14, 1);
 
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `usuarios`
---
-
-CREATE TABLE `usuarios` (
-  `id` int(12) NOT NULL,
-  `nome` varchar(50) NOT NULL,
-  `telefone` varchar(15) NOT NULL,
-  `email` varchar(30) NOT NULL,
-  `senha` varchar(30) NOT NULL,
-  `dataCadastro` timestamp NOT NULL DEFAULT current_timestamp(),
-  `situacao` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `usuarios`
---
-
-INSERT INTO `usuarios` (`id`, `nome`, `telefone`, `email`, `senha`, `dataCadastro`, `situacao`) VALUES
-(1, 'Carlos jader da silva oliveira', '88988420622', 'jaderoliveiraa@gmail.com', '21548721', '2020-03-23 03:00:00', 1),
-(14, 'admin', '0000000000000', 'admin@admin.com', '123456', '2020-03-30 19:43:24', 1),
-(15, 'asdasdasdaskjhkl', '88 88888-8888', 'kdjashdkajsd@lsakjdksaljd.com', '123456', '2020-03-31 22:58:00', 0);
-
 --
 -- Índices para tabelas despejadas
 --
@@ -92,12 +67,6 @@ ALTER TABLE `alunos`
   ADD KEY `fk_usuarios` (`idUsuarios`);
 
 --
--- Índices para tabela `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT de tabelas despejadas
 --
 
@@ -106,12 +75,6 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `alunos`
   MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de tabela `usuarios`
---
-ALTER TABLE `usuarios`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Restrições para despejos de tabelas
