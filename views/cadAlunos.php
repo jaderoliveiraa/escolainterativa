@@ -131,7 +131,7 @@ require_once '../controllers/connect.php';
                                         <span class="input-group-addon">Rua</span>
                                     </div>
                                     <div class="col">
-                                        <input id="rua" name="rua" class="form-control" placeholder="" required="" readonly="readonly" type="text">
+                                        <input id="rua" name="rua" class="form-control" placeholder="" required=""  type="text">
                                     </div>
                                 </div>
                                 <!-- Numero -->
@@ -150,7 +150,7 @@ require_once '../controllers/connect.php';
 
                                     </div>
                                     <div class="col-md-10">
-                                        <input id="bairro" name="bairro" class="form-control" placeholder="" required="" readonly="readonly" type="text">
+                                        <input id="bairro" name="bairro" class="form-control" placeholder="" required=""  type="text">
                                     </div>
                                 </div>
                                 <!-- Cidade -->
@@ -159,7 +159,7 @@ require_once '../controllers/connect.php';
                                         <label>Cidade</label>
                                     </div>
                                     <div class="col-md-10">
-                                        <input id="cidade" name="cidade" class="form-control" placeholder="" required=""  readonly="readonly" type="text">
+                                        <input id="cidade" name="cidade" class="form-control" placeholder="" required=""  type="text">
                                     </div>
                                 </div>
                                 <!-- Estado -->
@@ -167,7 +167,7 @@ require_once '../controllers/connect.php';
                                     <div class="col-md-2">
                                         <label>Estado</label>                                        </div>
                                     <div class="col-md-4">
-                                        <input id="estado" name="estado" class="form-control" placeholder="" required=""  readonly="readonly" type="text">
+                                        <input id="estado" name="estado" class="form-control" placeholder="" required=""  type="text">
                                     </div>
                                 </div>
                                 <!-- Serie -->
