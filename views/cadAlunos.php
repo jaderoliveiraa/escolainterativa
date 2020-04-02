@@ -278,7 +278,7 @@ require_once '../controllers/connect.php';
                             <td><?php echo $aluno['email']; ?></td>
                             <td><?php echo $aluno['serie']; ?></td>
                             <td><?php
-                                if ($aluno == 1) {
+                                if ($aluno['situacao'] == 1) {
                                     echo "Ativo";
                                 } else {
                                     echo 'Inativo';
