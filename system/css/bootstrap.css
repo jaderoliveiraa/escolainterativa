@@ -58,8 +58,13 @@ html {
     width: device-width;
 }
 
-article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, section {
+article, aside, dialog, figcaption, figure,  header, hgroup, main, nav, section {
     display: block;
+}
+footer{
+    display:block;
+    vertical-align: bottom;
+    margin-bottom: 0;
 }
 
 body {
@@ -732,6 +737,9 @@ pre code {
     max-width: 100%;
 }
 
+.ola{
+    padding-bottom: 12px;
+}
 .order-first {
     -webkit-box-ordinal-group: 0;
     -ms-flex-order: -1;
