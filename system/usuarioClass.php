@@ -16,6 +16,7 @@ class usuarioClass {
             $dado = $sql->fetch();
             
             $_SESSION['email'] = $dado['email'];
+            $_SESSION['tipo'] =$dado['tipo'];
             
             return true;            
         }else{
