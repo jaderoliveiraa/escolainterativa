@@ -1,5 +1,9 @@
 <!DOCTYPE html>
+<?php
+require_once '../controllers/connect.php';
 
+
+?>
 <html>
 <head>
     <link href="../system/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
