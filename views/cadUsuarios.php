@@ -98,6 +98,20 @@ require_once '../controllers/connect.php';
                                         </select>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <label>Tipo</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <select required id="tipo" name="tipo" class="form-control">
+                                            <option value=""></option>
+                                            <option value="1">Administrador</option>
+                                            <option value="2">Professor</option>
+                                            <option value="3">Responsável</option>
+                                            <option value="4">Aluno</option>
+                                        </select>
+                                    </div>
+                                </div>
 
 
                                 <!-- Modal footer -->
