@@ -13,7 +13,7 @@
             <div id="formContent">
                 <!-- Icon -->
                 <div class="fadeIn first">
-                    <img src="img/logo.png" id="icon" alt="User Icon" />
+                    <img src="img/logo_limpa_sombra_300X300px.png" id="icon" alt="User Icon" />
                 </div>
 
                 <!-- Formulário de Login -->
@@ -21,6 +21,7 @@
                     <input type="text" id="login" class="fadeIn second" name="email" placeholder="exemplo@exemplo.com" required="required" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" >
                     <input type="password" id="login" class="fadeIn third" name="senha" placeholder="Senha" required="required">
                     <input type="submit" class="fadeIn fourth" value="Entrar">
+                    <input type="hidden" id="custId" name="custId" value="">
                 </form>
 
                 <!-- Relembrar senha -->
