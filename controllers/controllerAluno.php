@@ -36,7 +36,7 @@ echo "Situação:..." .$_POST['situacao']. "<br>";*/
 $sql = "INSERT INTO alunos SET nome = '$nome' , dataNasc = '$dataNasc',sexo = '$sexo', telefone = '$telefone', email ='$email', senha='$senha', cep = '$cep', rua = '$rua', num = '$num', bairro = '$bairro', cidade = '$cidade', estado = '$estado', serie = '$serie', idUsuarios = '$idUsuarios', situacao = '$situacao'";
 
 if($pdo->query($sql)){
-    echo "<script> alert('Aluno Inserido com Sucesso!'); window.location.href = '../views/cadAlunos.php';</script>";
+    echo "<script> alert('Aluno Inserido com Sucesso!'); window.location.href = '../views/cadAlunosProfessores.php';</script>";
     //header("location:../formularios/formcadastro.php");
     
     
