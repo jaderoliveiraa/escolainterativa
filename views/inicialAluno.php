@@ -1,6 +1,6 @@
 <?php
 include_once './menuAluno.php';
-if (empty($_SESSION['email'])) {
+if (empty($_SESSION['email'])&& empty($_SESSION['nome'])) {
     header("location:../index.php");
 }
 ?>
