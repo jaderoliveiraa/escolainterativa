@@ -17,6 +17,7 @@ class usuarioClass {
             
             $_SESSION['email'] = $dado['email'];
             $_SESSION['tipo'] =$dado['tipo'];
+            $_SESSION['nome'] = $dado['nome'];
             
             return true;            
         }else{
