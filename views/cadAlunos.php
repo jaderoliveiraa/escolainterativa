@@ -43,13 +43,13 @@ require_once '../controllers/connect.php';
                     <div class="modal-body">
                         <form>
 
-                            <p class="table-sm  text-right">* campos obrigatórios</p>
+                            <p class="table-sm  text-right">Todos os campos são obrigatórios</p>
 
                             <!-- nome -->
                             <div class="container">
                                 <div class="row">
                                     <div class="col col-md-2">
-                                        <label>Nome*</label>
+                                        <label>Nome</label>
                                     </div>
                                     <div class="col col-md-10">
                                         <input id="nome" name="nome" placeholder="" class="form-control input-md" required="" type="text">
@@ -59,7 +59,7 @@ require_once '../controllers/connect.php';
                                 <!-- Data de Nascimento -->
                                 <div class="row">
                                     <div class="col col-md-2">
-                                        <label>Nasc.*</label>
+                                        <label>Nasc.</label>
                                     </div>
                                     <div class="col col-md-10">
                                         <input id="dtnasc" name="dataNasc" placeholder="DD/MM/AAAA" class="form-control input-sm" required="" type="text" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()">
@@ -69,7 +69,7 @@ require_once '../controllers/connect.php';
                                 <!--sexo caixa de seleção -->
                                 <div class="row">
                                     <div class="col">
-                                        <label>Sexo*</label>
+                                        <label>Sexo</label>
                                     </div>
                                     <div class="col-md-4">
                                         <label required="" class="radio-inline" for="radios-0" >
@@ -88,7 +88,7 @@ require_once '../controllers/connect.php';
                                 <!-- Telefone  -->
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <label>Tel.*</label>
+                                        <label>Tel.</label>
                                     </div>
                                     <div class="col-md-10">
                                         <input id="telefone" name="telefone" class="form-control" placeholder="XX XXXXX-XXXX" required="" type="text" maxlength="13" pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$"
@@ -98,7 +98,7 @@ require_once '../controllers/connect.php';
                                 <!-- e-mail -->
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <label>Email*</label>
+                                        <label>Email </label>
                                     </div>
                                     <div class="col-md-10">
                                         <input id="prependedtext" name="email" class="form-control" placeholder="email@email.com" required="" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" >
@@ -107,7 +107,7 @@ require_once '../controllers/connect.php';
                                 <!-- Senha -->
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <label>Senha*</label>
+                                        <label>Senha </label>
                                     </div>
                                     <div class="col-md-10">
                                         <input id="prependedtext" name="senha" class="form-control" placeholder="Senha" required="" type="password">
@@ -117,7 +117,7 @@ require_once '../controllers/connect.php';
 
                                 <!--  CEP  -->
                                 <div class="row">
-                                    <label class="col-md-2" for="CEP">CEP*</label>
+                                    <label class="col-md-2" for="CEP">CEP </label>
                                     <div class="col">
                                         <input id="cep" name="cep" placeholder="Apenas números" class="form-control input-md" required="" value="" type="search" maxlength="8" pattern="[0-9]+$">
                                     </div>
@@ -173,7 +173,7 @@ require_once '../controllers/connect.php';
                                 <!-- Serie -->
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <label class="col-md-2 control-label" for="selectbasic">Serie*</label>
+                                        <label class="" for="selectbasic">Serie</label>
                                     </div>
                                     <div class="col-md-10">
                                         <select required id="serie" name="serie" class="form-control">
@@ -207,144 +207,54 @@ require_once '../controllers/connect.php';
                                 <div class="form-group" required="">
                                     <div class="row">
                                         <div class="col-md-2">
-                                            <label class="col-md-3 control-label" for="selectbasic">Respons*</label>
+                                            <label class="" for="selectbasic">Respons </label>
                                         </div>
                                         <div class="col-md-10">
-                                            <select class="" title="Selecione um Responsável" name="idUsuarios">
+                                            <select class="form-control" title="Selecione um Responsável" name="idUsuarios">
 
                                                 <option></option>
                                                 <?php
                                                 $sql = "SELECT * FROM usuarios ORDER by nome";
                                                 $sql = $pdo->query($sql);
                                                 foreach ($sql->fetchAll() as $key) {
-                                                    echo "<option name='idUsuarios' value=\""; echo $key["id"]; echo "\">" . $key['id'] . " - " . $key['nome'] . "</option>";
+                                                    echo "<option name='idUsuarios' value=\"";
+                                                    echo $key["id"];
+                                                    echo "\">" . $key['id'] . " - " . $key['nome'] . "</option>";
                                                 }
                                                 ?>
                                             </select>
                                         </div>
                                     </div>
+                                </div>
 
+
+
+
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                                    <button type="submit" class="btn btn-primary">Cadastrar</button>
 
                                 </div>
                             </div>
-
-
-
-
-                            <!-- Modal footer -->
-                            <div class="modal-footer">
-
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                                <button type="submit" class="btn btn-primary">Cadastrar</button>
-
-                            </div>
+                        </form>
                     </div>
-                    </form>
+
+
                 </div>
-
-
             </div>
         </div>
-    </div>
+<?php
 
-    <!-- Tabela-->
-    <div class="container-fluid">
-        <?php
-        $rs = $pdo->prepare("SELECT * FROM alunos");
-        $rs->execute();
-        ?>
+require './tabelaAlunos.php';
+require './rodape.php';
 
-        <div class="container-fluid">
-            <table class="table table-striped " align="center" >
-                <thead class="titulo"><th colspan="6">Lista de Alunos</th></thead>
-                <thead class="thead ">
-                <th class="">Codigo</th>
-                <th class="">Nome</th>
-                <th class="">Telefone</th>
-                <th class="">E-mail</th>
-                <th class="">Serie</th>
-                <th class="">Situação</th>
-                <th class="">Alterar</th>
-                <th class="">Inativar</th>
-                <th class="">Ver Detalhes</th>
-                </thead>
-                <hr>
-                <tbody>
-                    <?php while ($aluno = $rs->fetch(PDO::FETCH_ASSOC)) { ?>       
-                        <tr>
-                            <td><?php echo $aluno['id']; ?></td>
-                            <td><?php echo $aluno['nome']; ?></td>
-                            <td><?php echo $aluno['telefone']; ?></td>
-                            <td><?php echo $aluno['email']; ?></td>
-                            <td><?php echo $aluno['serie']; ?></td>
-                            <td><?php
-                                if ($aluno['situacao'] == 1) {
-                                    echo "Ativo";
-                                } else {
-                                    echo 'Inativo';
-                                }
-                                ?></td>
-
-                            <td><a href="formAltfuncionarios.php?id=<?php echo $aluno['id']; ?>" class="img-circle"><img src="../img/editar.png" alt="Alterar"/><a></td>
-                                        <td><a href="javascript:func()" onclick="inativar(<?php echo $aluno['id']; ?>)"><img src="../img/proibido.png" alt="Inativar"/></a></td>
-                                        <td><a href="formAltfuncionarios.php?id=<?php echo $aluno['id']; ?>"><img src="../img/lista.png" alt=""/><a></td>
-
-                                                    </tr>  
-
-                                                <?php } ?>
-
-                                                </tbody>
-                                                </table><br><br><br>
-                                                </div>
-
-                                                </div>
-
-                                                <!-- <div class="container-lg">
-                                                    <table class="table table-striped">
-                                                        <thead class="table-primary">
-                                                            <tr>
-                                                                <th scope="col-md-1">#</th>
-                                                                <th scope="col-md-6">Nome</th>
-                                                                <th scope="col">Handle</th>
-                                                                <th scope="col">teste</th>
-                                                                <th scope="col">teste</th>
-                                                                <th scope="col">teste</th>
-                                                                <th scope="col">teste</th>
-                                                                <th scope="col">teste</th>
-                                                                <th scope="col">teste</th>
-                                                                <th scope="col">teste</th>
-                                                                <th scope="col">teste</th>
-                                                                <th scope="col">teste</th>
-                                                                <th scope="col">teste</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <th scope="row">1</th>
-                                                                <td>Mark</td>
-                                                                <td>Otto</td>
-                                                                <td>@mdo</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">2</th>
-                                                                <td>Jacob</td>
-                                                                <td>Thornton</td>
-                                                                <td>@fat</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">3</th>
-                                                                <td>Larry</td>
-                                                                <td>the Bird</td>
-                                                                <td>@twitter</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div> -->
+?>
 
 
+    </form>
 
-                                                </form>
 
-
-                                                </body>
-                                                </html>
+</body>
+</html>
