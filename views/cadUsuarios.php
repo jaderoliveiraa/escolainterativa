@@ -44,23 +44,51 @@ require_once '../controllers/connect.php';
                     <div class="modal-body">
                         <form>
 
-                            <p class="table-sm  text-right">* campos obrigatórios</p>
+                            <p class="table-sm  text-right">Todos os campos são obrigatórios</p>
 
                             <!-- nome -->
                             <div class="container">
                                 <div class="row">
                                     <div class="col col-md-2">
-                                        <label>Nome*</label>
+                                        <label>Nome </label>
                                     </div>
                                     <div class="col col-md-10">
                                         <input id="nome" name="nome" placeholder="" class="form-control input-md" required="" type="text">
+                                    </div>
+                                </div>
+                                 <!-- Data de Nascimento -->
+                                <div class="row">
+                                    <div class="col col-md-2">
+                                        <label>Nasc. </label>
+                                    </div>
+                                    <div class="col col-md-10">
+                                        <input id="dtnasc" name="dataNasc" placeholder="DD/MM/AAAA" class="form-control input-sm" required="" type="text" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()">
+                                    </div>
+                                </div>
+
+                                <!--sexo caixa de seleção -->
+                                <div class="row">
+                                    <div class="col">
+                                        <label>Sexo </label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label required="" class="radio-inline" for="radios-0" >
+                                            <input name="sexo" id="sexo" value="masculino" type="radio" required>
+                                            Masculino
+                                        </label> 
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="radio-inline" for="radios-1">
+                                            <input name="sexo" id="sexo" value="feminino" type="radio">
+                                            Feminino
+                                        </label>
                                     </div>
                                 </div>
 
                                 <!-- Telefone  -->
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <label>Tel.*</label>
+                                        <label>Tel. </label>
                                     </div>
                                     <div class="col-md-10">
                                         <input id="telefone" name="telefone" class="form-control" placeholder="XX XXXXX-XXXX" required="" type="text" maxlength="13" pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$"
@@ -70,7 +98,7 @@ require_once '../controllers/connect.php';
                                 <!-- e-mail -->
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <label>Email*</label>
+                                        <label>Email </label>
                                     </div>
                                     <div class="col-md-10">
                                         <input id="prependedtext" name="email" class="form-control" placeholder="email@email.com" required="" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" >
@@ -79,12 +107,68 @@ require_once '../controllers/connect.php';
                                 <!-- Senha -->
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <label>Senha*</label>
+                                        <label>Senha </label>
                                     </div>
                                     <div class="col-md-10">
                                         <input id="prependedtext" name="senha" class="form-control" placeholder="Senha" required="" type="password">
                                     </div>
                                 </div>
+                                <!--  CEP  -->
+                                <div class="row">
+                                    <label class="col-md-2" for="CEP">CEP*</label>
+                                    <div class="col">
+                                        <input id="cep" name="cep" placeholder="Apenas números" class="form-control input-md" required="" value="" type="search" maxlength="8" pattern="[0-9]+$">
+                                    </div>
+                                    <div class="col">
+                                        <button type="button" class="btn btn-primary" onclick="pesquisacep(cep.value)">Pesquisar</button>
+                                    </div>
+                                </div>
+                                <!-- Rua -->
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <span class="input-group-addon">Rua</span>
+                                    </div>
+                                    <div class="col">
+                                        <input id="rua" name="rua" class="form-control" placeholder="" required=""  type="text">
+                                    </div>
+                                </div>
+                                <!-- Numero -->
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <span class="input-group-addon">Nº*</span>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input id="num" name="num" class="form-control" placeholder="" required=""  type="text">
+                                    </div>
+                                </div>
+                                <!-- Bairro -->
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <span class="input-group-addon">Bairro</span>
+
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input id="bairro" name="bairro" class="form-control" placeholder="" required=""  type="text">
+                                    </div>
+                                </div>
+                                <!-- Cidade -->
+                                <div class="row">
+                                    <div class="col-md-2    ">
+                                        <label>Cidade</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input id="cidade" name="cidade" class="form-control" placeholder="" required=""  type="text">
+                                    </div>
+                                </div>
+                                <!-- Estado -->
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <label>Estado</label>                                        </div>
+                                    <div class="col-md-4">
+                                        <input id="estado" name="estado" class="form-control" placeholder="" required=""  type="text">
+                                    </div>
+                                </div>
+                                
                                 <!-- Status -->
                                 <div class="row">
                                     <div class="col-md-2">
@@ -129,8 +213,10 @@ require_once '../controllers/connect.php';
                 </div>
             </div>
         </div>
+        
+        
 
-        <!-- Tabela-->
+        <!-- Tabela Usuarios-->
         <div class="container-fluid">
             <?php
             $rs = $pdo->prepare("SELECT * FROM usuarios");
@@ -138,13 +224,14 @@ require_once '../controllers/connect.php';
             ?>
 
             <div class="container-fluid">
-                <table class="table table-striped " align="center" >
-                    <thead class="titulo"><th colspan="6">Lista de Alunos</th></thead>
+                <table class="table table-striped table-hover table-sm" align="center" >
+                    <thead class="titulo table-warning"><th colspan="9">Lista de Usuários</th></thead>
                     <thead class="thead ">
                     <th class="">Codigo</th>
                     <th class="">Nome</th>
                     <th class="">Telefone</th>
                     <th class="">E-mail</th>
+                    <th class="">Tipo</th>
                     <th class="">Situação</th>
                     <th class="">Alterar</th>
                     <th class="">Inativar</th>
@@ -152,23 +239,47 @@ require_once '../controllers/connect.php';
                     </thead>
                     <hr>
                     <tbody>
-                        <?php while ($aluno = $rs->fetch(PDO::FETCH_ASSOC)) { ?>       
+                        <?php while ($usuario = $rs->fetch(PDO::FETCH_ASSOC)) { ?>       
                             <tr>
-                                <td><?php echo $aluno['id']; ?></td>
-                                <td><?php echo $aluno['nome']; ?></td>
-                                <td><?php echo $aluno['telefone']; ?></td>
-                                <td><?php echo $aluno['email']; ?></td>
+                                <td><?php echo $usuario['id']; ?></td>
+                                <td><?php echo $usuario['nome']; ?></td>
+                                <td><?php echo $usuario['telefone']; ?></td>
+                                <td><?php echo $usuario['email']; ?></td>
+                                <td><?php 
+                                                    switch ($usuario['tipo']) {
+                                                        case 1:
+                                                            echo 'Administrador';
+
+                                                            break;
+                                                        case 2:
+                                                            echo 'Professor';
+
+                                                            break;
+                                                        case 3:
+                                                            echo 'Responsável';
+
+                                                            break;
+                                                        case 4:
+                                                            echo 'Aluno';
+
+                                                            break;
+
+                                                        default:
+                                                            break;
+                                                    }
+                                
+                                ?></td>
                                 <td><?php
-                                    if ($aluno ['situacao']== 1) {
+                                    if ($usuario['situacao'] == 1) {
                                         echo "Ativo";
                                     } else {
                                         echo 'Inativo';
                                     }
                                     ?></td>
 
-                                <td><a href="formAltfuncionarios.php?id=<?php echo $aluno['id']; ?>" class="img-circle"><img src="../img/editar.png" alt="Alterar"/><a></td>
-                                            <td><a href="javascript:func()" onclick="inativar(<?php echo $aluno['id']; ?>)"><img src="../img/proibido.png" alt="Inativar"/></a></td>
-                                            <td><a href="formAltfuncionarios.php?id=<?php echo $aluno['id']; ?>"><img src="../img/lista.png" alt=""/><a></td>
+                                <td><a href="formAltfuncionarios.php?id=<?php echo $usuario['id']; ?>" class="img-circle"><img src="../img/editar.png" alt="Alterar"/><a></td>
+                                            <td><a href="javascript:func()" onclick="inativar(<?php echo $usuario['id']; ?>)"><img src="../img/proibido.png" alt="Inativar"/></a></td>
+                                            <td><a href="formAltfuncionarios.php?id=<?php echo $usuario['id']; ?>"><img src="../img/lista.png" alt=""/><a></td>
 
                                                         </tr>  
 
@@ -184,6 +295,8 @@ require_once '../controllers/connect.php';
 
                                                     </form>
 
-
+                                                    <?php
+                                                    require './rodape.php';
+                                                    ?>
                                                     </body>
                                                     </html>
