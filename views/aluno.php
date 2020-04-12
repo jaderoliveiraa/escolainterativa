@@ -10,7 +10,7 @@
                 <div class="row"><br></div>
                 <div class="row row-inline ola">
                     <b>Olá <?php
-                        echo $_SESSION['email'];
+                        echo $_SESSION['nome'];
                         ?>, seja bem vindo, você está logado como Aluno!</b></br>
                 </div>
                 <div class="row"><br></div>
