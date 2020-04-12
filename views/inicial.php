@@ -1,7 +1,7 @@
 <?php
 require '../controllers/connect.php';
 require '../views/menuPrincipal.php';
-if (empty($_SESSION['email'])) {
+if (empty($_SESSION['email']) && empty($_SESSION['nome'])) {
     header("location:../index.php");
 }
 ?>
@@ -24,56 +24,51 @@ if (empty($_SESSION['email'])) {
             <div class="conteudo" style=" height: 29.05rem;">
                 <div class="row"><br></div>
                 <div class="row row-inline ola">
-                    <b>Olá, seja bem vindo, você está logado como Administrador!</b></br>
+                    <b>Olá <?php
+                        echo $_SESSION['nome'];
+                        ?>, seja bem vindo! Você está logado como Administrador!</b></br>
                 </div>
                 <div class="row"><br></div>
                 <div class="row">
-                    <div class="col-2">
-                        <a href="#"> <div class="card" style="width: 10rem;">
+                    <div class="col-3">
+                        <a href="cadDisciplinas.php"> <div class="card-wrapper " style="width: 15rem;">
                                 <img class="card-img-top" src="../img/livros.jpg" alt="Imagem de capa do card">
                                 <div class="card-body">
-                                    <h5 class="card-title">Disciplinas</h5>
+                                    <h2 class="card-title text-center">Disciplinas</h2>
                                 </div>
                             </div></a>
                     </div>
-                    <div class="col-2">
-                        <a href="#"><div class="card" style="width: 10rem;">
+                    <div class="col-3">
+                        <a href="#"><div class="card-wrapper" style="width: 15rem;">
                                 <img class="card-img-top" src="../img/report.png" alt="Imagem de capa do card">
-                                <div class="card-body">
-                                    <H5 class="card-title">Relatórios</H5>
+                                <div class="card-body text-center">
+                                    <h2 class="card-title">Relatórios</h2>
                                 </div>
                             </div></a>
                     </div>
-                    <div class="col-2">
-                        <a href="cadUsuarios.php"><div class="card" style="width: 10rem;">
+                    <div class="col-3">
+                        <a href="cadUsuarios.php"><div class="card-wrapper" style="width: 15rem;">
                                 <img class="card-img-top" src="../img/usuarios.png" alt="Imagem de capa do card">
                                 <div class="card-body">
-                                    <h5 class="card-title">Usuários</h5>
+                                    <h2 class="card-title text-center">Usuários</h2>
                                 </div>
                             </div></a>
                     </div>
-                    <div class="col-2">
-                        <a href="cadAlunos.php"><div class="card" style="width: 10rem;">
+                    <div class="col-3 mask flex-center">
+                        <a href="cadAlunos.php"><div class="card-wrapper" style="width: 15rem;">
                                 <img class="card-img-top" src="../img/alunos.png" alt="Imagem de capa do card">
                                 <div class="card-body">
-                                    <h5 class="card-title">Alunos</h5>
-                                </div>
-                            </div>
-                    </div></a>
-                    <div class="col-2">
-                        <a href="#"><div class="card" style="width: 10rem;">
-                                <img class="card-img-top" src="../img/professor.png" alt="Imagem de capa do card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Professores</h5>
+                                    <h2 class="card-title text-center " >Alunos</h2>
                                 </div>
                             </div></a>
                     </div>
+                    
                 </div>
             </div>
         </div>
 
-    <?php
-    require 'rodape.php';
-    ?>
-</body>
+        <?php
+        require './rodape.php';
+        ?>
+    </body>
 </html>
