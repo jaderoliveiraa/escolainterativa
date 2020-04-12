@@ -1,7 +1,7 @@
 <?php
 include_once './menuProfessor.php';
 require '../controllers/connect.php';
-if (empty($_SESSION['email'])) {
+if (empty($_SESSION['email'])&& empty($_SESSION['nome'])) {
     header("location:../index.php");
 }
 ?>
