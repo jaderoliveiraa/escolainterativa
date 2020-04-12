@@ -215,7 +215,9 @@ require_once '../controllers/connect.php';
                                                 $sql = "SELECT * FROM usuarios ORDER by nome";
                                                 $sql = $pdo->query($sql);
                                                 foreach ($sql->fetchAll() as $key) {
-                                                    echo "<option name='idUsuarios' value=\""; echo $key["id"]; echo "\">" . $key['id'] . " - " . $key['nome'] . "</option>";
+                                                    echo "<option name='idUsuarios' value=\"";
+                                                    echo $key["id"];
+                                                    echo "\">" . $key['id'] . " - " . $key['nome'] . "</option>";
                                                 }
                                                 ?>
                                             </select>
@@ -245,104 +247,12 @@ require_once '../controllers/connect.php';
         </div>
     </div>
 
-    <!-- Tabela-->
-    <div class="container-fluid">
-        <?php
-        $rs = $pdo->prepare("SELECT * FROM alunos");
-        $rs->execute();
-        ?>
+</form>
 
-        <div class="container-fluid">
-            <table class="table table-striped " align="center" >
-                <thead class="titulo"><th colspan="6">Lista de Alunos</th></thead>
-                <thead class="thead ">
-                <th class="">Codigo</th>
-                <th class="">Nome</th>
-                <th class="">Telefone</th>
-                <th class="">E-mail</th>
-                <th class="">Serie</th>
-                <th class="">Situação</th>
-                <th class="">Alterar</th>
-                <th class="">Inativar</th>
-                <th class="">Ver Detalhes</th>
-                </thead>
-                <hr>
-                <tbody>
-                    <?php while ($aluno = $rs->fetch(PDO::FETCH_ASSOC)) { ?>       
-                        <tr>
-                            <td><?php echo $aluno['id']; ?></td>
-                            <td><?php echo $aluno['nome']; ?></td>
-                            <td><?php echo $aluno['telefone']; ?></td>
-                            <td><?php echo $aluno['email']; ?></td>
-                            <td><?php echo $aluno['serie']; ?></td>
-                            <td><?php
-                                if ($aluno['situacao'] == 1) {
-                                    echo "Ativo";
-                                } else {
-                                    echo 'Inativo';
-                                }
-                                ?></td>
-
-                            <td><a href="formAltfuncionarios.php?id=<?php echo $aluno['id']; ?>" class="img-circle"><img src="../img/editar.png" alt="Alterar"/><a></td>
-                                        <td><a href="javascript:func()" onclick="inativar(<?php echo $aluno['id']; ?>)"><img src="../img/proibido.png" alt="Inativar"/></a></td>
-                                        <td><a href="formAltfuncionarios.php?id=<?php echo $aluno['id']; ?>"><img src="../img/lista.png" alt=""/><a></td>
-
-                                                    </tr>  
-
-                                                <?php } ?>
-
-                                                </tbody>
-                                                </table><br><br><br>
-                                                </div>
-
-                                                </div>
-
-                                                <!-- <div class="container-lg">
-                                                    <table class="table table-striped">
-                                                        <thead class="table-primary">
-                                                            <tr>
-                                                                <th scope="col-md-1">#</th>
-                                                                <th scope="col-md-6">Nome</th>
-                                                                <th scope="col">Handle</th>
-                                                                <th scope="col">teste</th>
-                                                                <th scope="col">teste</th>
-                                                                <th scope="col">teste</th>
-                                                                <th scope="col">teste</th>
-                                                                <th scope="col">teste</th>
-                                                                <th scope="col">teste</th>
-                                                                <th scope="col">teste</th>
-                                                                <th scope="col">teste</th>
-                                                                <th scope="col">teste</th>
-                                                                <th scope="col">teste</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <th scope="row">1</th>
-                                                                <td>Mark</td>
-                                                                <td>Otto</td>
-                                                                <td>@mdo</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">2</th>
-                                                                <td>Jacob</td>
-                                                                <td>Thornton</td>
-                                                                <td>@fat</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">3</th>
-                                                                <td>Larry</td>
-                                                                <td>the Bird</td>
-                                                                <td>@twitter</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div> -->
+<?php
+require './tabelaAlunos.php';
+?>
 
 
-
-                                                </form>
-
-
-                                                </body>
-                                                </html>
+</body>
+</html>
