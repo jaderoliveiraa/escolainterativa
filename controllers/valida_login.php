@@ -24,24 +24,29 @@
 
             $usuario = new usuarioClass();
 
-            if ($usuario->login($email, $senha) == true) {
-                if (isset($_SESSION['email'])) {
-                    switch ($res['tipo']) {
-                        case 1:
-                            header("location:../views/inicial.php");
-                            break;
-                        case 2:
-                            header("location:../views/inicialProfessor.php");
-                            break;
-                        case 3:
-                            header("location:../views/inicialResponsavel.php");
-                            break;
-                        case 4:
-                            header("location:../views/inicialAluno.php");
-                            break;
 
-                        default:
-                            break;
+            if ($usuario->login($email, $senha) == true) {
+                if ($res['situacao'] != 0) {
+                    if (isset($_SESSION['email'])) {
+                        switch ($res['tipo']) {
+                            case 1:
+                                header("location:../views/inicial.php");
+                                break;
+                            case 2:
+                                header("location:../views/inicialProfessor.php");
+                                break;
+                            case 3:
+                                header("location:../views/inicialResponsavel.php");
+                                break;
+                            case 4:
+                                header("location:../views/inicialAluno.php");
+                                break;
+
+                            default:
+                                break;
+                        }
+                    } else {
+                        echo "<script> alert('Usuário ou senha inválidos!'); window.location.href = '../index.php';</script>";
                     }
                 } else {
                     echo "<script> alert('Usuário ou senha inválidos!'); window.location.href = '../index.php';</script>";
@@ -50,7 +55,7 @@
                 echo "<script> alert('Usuário ou senha inválidos!'); window.location.href = '../index.php';</script>";
             }
         } else {
-            echo "<script> alert('Usuário ou senha inválidos!'); window.location.href = '../index.php';</script>";
+            echo "<script> alert('Usuário não encontrado, entre em contato com o Administrador!'); window.location.href = '../index.php';</script>";
         }
         ?>
 
