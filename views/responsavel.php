@@ -14,8 +14,8 @@ and open the template in the editor.
             <div class="conteudo" style=" height: 29.05rem;">
                 <div class="row"><br></div>
                 <div class="row row-inline ola">
-                    <b>Olá <?php
-                        echo $_SESSION['email'];
+                    <b><?php
+                        echo $_SESSION['nome'];
                         ?>, seja bem vindo, você está logado como Responsável!</b></br>
                 </div>
                 <div class="row"><br></div>
