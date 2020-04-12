@@ -25,7 +25,7 @@
                 <li class="nav-item">
                     <a class="nav-link text-white" href="../views/cadAlunosProfessores.php">Alunos <span class="sr-only">(current)</span></a>
                 </li>
-                    <a class="nav-link text-white" href="#">Disciplinas <span class="sr-only">(current)</span></a>
+                <a class="nav-link text-white" href="cadDisciplinasProfessores.php">Disciplinas <span class="sr-only">(current)</span></a>
                 </li>
 
                 <li class="nav-item">
