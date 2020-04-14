@@ -15,6 +15,7 @@ require_once '../controllers/connect.php';
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>-->
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="../system/js/form.js" type="text/javascript"></script>
+    <script src="../system/js/divs.js" type="text/javascript"></script>
 
 </head>
 <body>
@@ -56,7 +57,7 @@ require_once '../controllers/connect.php';
                                         <input id="nome" name="nome" placeholder="" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
-                                 <!-- Data de Nascimento -->
+                                <!-- Data de Nascimento -->
                                 <div class="row">
                                     <div class="col col-md-2">
                                         <label>Nasc. </label>
@@ -120,7 +121,7 @@ require_once '../controllers/connect.php';
                                         <input id="cep" name="cep" placeholder="Apenas números" class="form-control input-md" required="" value="" type="search" maxlength="8" pattern="[0-9]+$">
                                     </div>
                                     <div class="col">
-                                        <button type="button" class="btn btn-primary" onclick="pesquisacep(cep.value)">Pesquisar</button>
+                                        <button type="button" class="btn btn-success" onclick="pesquisacep(cep.value)">Pesquisar</button>
                                     </div>
                                 </div>
                                 <!-- Rua -->
@@ -168,7 +169,7 @@ require_once '../controllers/connect.php';
                                         <input id="estado" name="estado" class="form-control" placeholder="" required=""  type="text">
                                     </div>
                                 </div>
-                                
+
                                 <!-- Status -->
                                 <div class="row">
                                     <div class="col-md-2">
@@ -196,6 +197,49 @@ require_once '../controllers/connect.php';
                                         </select>
                                     </div>
                                 </div>
+                                <!-- Serie -->
+                                <div id="oculto" class="row oculto">
+                                    <div class="col-md-2">
+                                        <label class="" for="selectbasic">Serie</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <select required="" name="serie" class="form-control">
+                                            <option value=""></option>
+                                            <option value="Primeiro Ano">Primeiro Ano</option>
+                                            <option value="Segundo Ano">Segundo Ano</option>
+                                            <option value="Terceiro Ano">Terceiro Ano</option>
+                                            <option value="Quarto Ano">Quarto Ano</option>
+                                            <option value="Quinto Ano">Quinto Ano</option>
+                                            <option value="Sexto Ano">Sexto Ano</option>
+                                            <option value="Setimo Ano">Setimo Ano</option>
+                                            <option value="Oitavo Ano">Oitavo Ano</option>
+                                            <option value="Nono Ano">Nono Ano</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- Select Responsáveis -->
+                                
+                                <div id="oculto2" class="row oculto2">
+                                        <div class="col-md-2">
+                                            <label class="" for="selectbasic">Respons </label>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <select class="form-control" title="Selecione um Responsável" name="idUsuarios">
+
+                                                <option></option>
+                                                <?php
+                                                $sql = "SELECT * FROM usuarios WHERE tipo = 3 ORDER by nome";
+                                                $sql = $pdo->query($sql);
+                                                foreach ($sql->fetchAll() as $key) {
+                                                    echo "<option name='idUsuarios' value=\"";
+                                                    echo $key["id"];
+                                                    echo "\">" . $key['nome'] . " - " . $key['email'] . "</option>";
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                
 
 
                                 <!-- Modal footer -->
@@ -213,8 +257,8 @@ require_once '../controllers/connect.php';
                 </div>
             </div>
         </div>
-        
-        
+
+
 
         <!-- Tabela Usuarios-->
         <div class="container-fluid">
@@ -245,30 +289,29 @@ require_once '../controllers/connect.php';
                                 <td><?php echo $usuario['nome']; ?></td>
                                 <td><?php echo $usuario['telefone']; ?></td>
                                 <td><?php echo $usuario['email']; ?></td>
-                                <td><?php 
-                                                    switch ($usuario['tipo']) {
-                                                        case 1:
-                                                            echo 'Administrador';
+                                <td><?php
+                                    switch ($usuario['tipo']) {
+                                        case 1:
+                                            echo 'Administrador';
 
-                                                            break;
-                                                        case 2:
-                                                            echo 'Professor';
+                                            break;
+                                        case 2:
+                                            echo 'Professor';
 
-                                                            break;
-                                                        case 3:
-                                                            echo 'Responsável';
+                                            break;
+                                        case 3:
+                                            echo 'Responsável';
 
-                                                            break;
-                                                        case 4:
-                                                            echo 'Aluno';
+                                            break;
+                                        case 4:
+                                            echo 'Aluno';
 
-                                                            break;
+                                            break;
 
-                                                        default:
-                                                            break;
-                                                    }
-                                
-                                ?></td>
+                                        default:
+                                            break;
+                                    }
+                                    ?></td>
                                 <td><?php
                                     if ($usuario['situacao'] == 1) {
                                         echo "Ativo";
