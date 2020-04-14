@@ -214,7 +214,7 @@ require_once '../controllers/connect.php';
 
                                                 <option></option>
                                                 <?php
-                                                $sql = "SELECT * FROM usuarios ORDER by nome";
+                                                $sql = "SELECT * FROM usuarios WHERE tipo = 3 ORDER by nome";
                                                 $sql = $pdo->query($sql);
                                                 foreach ($sql->fetchAll() as $key) {
                                                     echo "<option name='idUsuarios' value=\"";
