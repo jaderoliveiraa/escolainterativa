@@ -36,7 +36,9 @@ require_once '../controllers/connect.php';
                 <li class="nav-item">
                     <a class="nav-link text-white" href="cadDisciplinas.php">Disciplinas <span class="sr-only">(current)</span></a>
                 </li>
-
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="cadNotas.php">Notas <span class="sr-only">(current)</span></a>
+                    </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="#">Relatórios</a>
                 </li>
