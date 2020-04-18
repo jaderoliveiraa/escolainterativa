@@ -1,7 +1,7 @@
 
 <!------ Include the above in your HEAD tag ---------->
 <?php
-require "./menuProfessor.php"; 
+require "./menuProfessor.php";
 require_once '../controllers/connect.php';
 ?>
 <!DOCTYPE html>
@@ -20,7 +20,8 @@ require_once '../controllers/connect.php';
 <body>
 
     <form class="container-fluid" action="../controllers/controllerDisciplinas.php" method="POST">
-       <!-- O Modal -->
+        
+        <!-- O Modal -->
         <div class="modal $modal-fade-transform: scale(.8) " id="modalDisciplinas">
             <div class="modal-dialog">
                 <div class="modal-content  ">
@@ -82,12 +83,12 @@ require_once '../controllers/connect.php';
 
                                             <option></option>
                                             <?php
-                                            $sql = "SELECT * FROM professores ORDER by nome";
+                                            $sql = "SELECT * FROM usuarios WHERE tipo = 2 ORDER by nome";
                                             $sql = $pdo->query($sql);
                                             foreach ($sql->fetchAll() as $key) {
                                                 echo "<option name='id_professor' value=\"";
                                                 echo $key["id"];
-                                                echo "\">" . $key['id_usuario'] . " - " . $key['nome'] . "</option>";
+                                                echo "\">" . $key['id'] . " - " . $key['nome'] . "</option>";
                                             }
                                             ?>
                                         </select>
@@ -112,6 +113,7 @@ require_once '../controllers/connect.php';
 
     <?php
     require './tabelaDisciplinas.php';
+    require './rodape.php';
     ?>
 
 
