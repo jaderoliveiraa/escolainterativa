@@ -27,7 +27,9 @@
                 </li>
                 <a class="nav-link text-white" href="cadDisciplinasProfessores.php">Disciplinas <span class="sr-only">(current)</span></a>
                 </li>
-
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="cadNotasProfessor.php">Notas <span class="sr-only">(current)</span></a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="#">Relatórios</a>
                 </li>
