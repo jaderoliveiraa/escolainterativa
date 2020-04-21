@@ -20,9 +20,9 @@ require_once '../controllers/connect.php';
 
     <form class="container-fluid" action="../controllers/controllerAluno.php" method="POST">
         <!-- Botão para abrir Modal Aluno -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAluno">
-            Cadastrar Aluno
-        </button>
+        </br><a title='Imprimir conteúdo' href='javascript:window.print()' class="text-white"><button type="button" class="btn btn-primary" >
+            <b>Imprimir</b>
+        </button></a>
 
         <!-- O Modal -->
         <div class="modal $modal-fade-transform: scale(.8)" id="modalAluno">
