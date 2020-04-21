@@ -10,9 +10,6 @@ require_once '../controllers/connect.php';
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <!--<link href="../system/css/form.css" rel="stylesheet" type="text/css"/>
-    <link href="../system/css/estiloMenu.css" rel="stylesheet" type="text/css"/>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>-->
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="../system/js/form.js" type="text/javascript"></script>
     <script src="../system/js/divs.js" type="text/javascript"></script>
@@ -57,174 +54,186 @@ require_once '../controllers/connect.php';
                                         <input id="nome" name="nome" placeholder="" class="form-control input-md" required="" type="text">
                                     </div>
                                 </div>
-                                <!-- Data de Nascimento -->
-                                <div class="row">
-                                    <div class="col col-md-2">
-                                        <label>Nasc. </label>
-                                    </div>
-                                    <div class="col col-md-10">
-                                        <input id="dtnasc" name="dataNasc" placeholder="DD/MM/AAAA" class="form-control input-sm" required="" type="text" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()">
-                                    </div>
-                                </div>
 
-                                <!--sexo caixa de seleção -->
-                                <div class="row">
-                                    <div class="col">
-                                        <label>Sexo </label>
+                                <!-- Sobrenome -->
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col col-md-2">
+                                            <label>Sobrenome </label>
+                                        </div>
+                                        <div class="col col-md-10">
+                                            <input id="sobrenome" name="sobrenome" placeholder="" class="form-control input-md" required="" type="text">
+                                        </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <label required="" class="radio-inline" for="radios-0" >
-                                            <input name="sexo" id="sexo" value="masculino" type="radio" required>
-                                            Masculino
-                                        </label> 
+                                    <!-- Data de Nascimento -->
+                                    <div class="row">
+                                        <div class="col col-md-2">
+                                            <label>Nasc. </label>
+                                        </div>
+                                        <div class="col col-md-10">
+                                            <input id="dtnasc" name="dataNasc" placeholder="DD/MM/AAAA" class="form-control input-sm" required="" type="text" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()">
+                                        </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <label class="radio-inline" for="radios-1">
-                                            <input name="sexo" id="sexo" value="feminino" type="radio">
-                                            Feminino
-                                        </label>
-                                    </div>
-                                </div>
 
-                                <!-- Telefone  -->
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <label>Tel. </label>
+                                    <!--sexo caixa de seleção -->
+                                    <div class="row">
+                                        <div class="col">
+                                            <label>Sexo </label>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label required="" class="radio-inline" for="radios-0" >
+                                                <input name="sexo" id="sexo" value="masculino" type="radio" required>
+                                                Masculino
+                                            </label> 
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="radio-inline" for="radios-1">
+                                                <input name="sexo" id="sexo" value="feminino" type="radio">
+                                                Feminino
+                                            </label>
+                                        </div>
                                     </div>
-                                    <div class="col-md-10">
-                                        <input id="telefone" name="telefone" class="form-control" placeholder="XX XXXXX-XXXX" required="" type="text" maxlength="13" pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$"
-                                               OnKeyPress="formatar('## #####-####', this)">
-                                    </div>
-                                </div>
-                                <!-- e-mail -->
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <label>Email </label>
-                                    </div>
-                                    <div class="col-md-10">
-                                        <input id="prependedtext" name="email" class="form-control" placeholder="email@email.com" required="" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" >
-                                    </div>
-                                </div>
-                                <!-- Senha -->
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <label>Senha </label>
-                                    </div>
-                                    <div class="col-md-10">
-                                        <input id="prependedtext" name="senha" class="form-control" placeholder="Senha" required="" type="password">
-                                    </div>
-                                </div>
-                                <!--  CEP  -->
-                                <div class="row">
-                                    <label class="col-md-2" for="CEP">CEP*</label>
-                                    <div class="col">
-                                        <input id="cep" name="cep" placeholder="Apenas números" class="form-control input-md" required="" value="" type="search" maxlength="8" pattern="[0-9]+$">
-                                    </div>
-                                    <div class="col">
-                                        <button type="button" class="btn btn-success" onclick="pesquisacep(cep.value)">Pesquisar</button>
-                                    </div>
-                                </div>
-                                <!-- Rua -->
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <span class="input-group-addon">Rua</span>
-                                    </div>
-                                    <div class="col">
-                                        <input id="rua" name="rua" class="form-control" placeholder="" required=""  type="text">
-                                    </div>
-                                </div>
-                                <!-- Numero -->
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <span class="input-group-addon">Nº*</span>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <input id="num" name="num" class="form-control" placeholder="" required=""  type="text">
-                                    </div>
-                                </div>
-                                <!-- Bairro -->
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <span class="input-group-addon">Bairro</span>
 
+                                    <!-- Telefone  -->
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label>Tel. </label>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <input id="telefone" name="telefone" class="form-control" placeholder="XX XXXXX-XXXX" required="" type="text" maxlength="13" pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$"
+                                                   OnKeyPress="formatar('## #####-####', this)">
+                                        </div>
                                     </div>
-                                    <div class="col-md-10">
-                                        <input id="bairro" name="bairro" class="form-control" placeholder="" required=""  type="text">
+                                    <!-- e-mail -->
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label>Email </label>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <input id="prependedtext" name="email" class="form-control" placeholder="email@email.com" required="" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" >
+                                        </div>
                                     </div>
-                                </div>
-                                <!-- Cidade -->
-                                <div class="row">
-                                    <div class="col-md-2    ">
-                                        <label>Cidade</label>
+                                    <!-- Senha -->
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label>Senha </label>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <input id="prependedtext" name="senha" class="form-control" placeholder="Senha" required="" type="password">
+                                        </div>
                                     </div>
-                                    <div class="col-md-10">
-                                        <input id="cidade" name="cidade" class="form-control" placeholder="" required=""  type="text">
+                                    <!--  CEP  -->
+                                    <div class="row">
+                                        <label class="col-md-2" for="CEP">CEP*</label>
+                                        <div class="col">
+                                            <input id="cep" name="cep" placeholder="Apenas números" class="form-control input-md" required="" value="" type="search" maxlength="8" pattern="[0-9]+$">
+                                        </div>
+                                        <div class="col">
+                                            <button type="button" class="btn btn-success" onclick="pesquisacep(cep.value)">Pesquisar</button>
+                                        </div>
                                     </div>
-                                </div>
-                                <!-- Estado -->
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <label>Estado</label>                                        </div>
-                                    <div class="col-md-4">
-                                        <input id="estado" name="estado" class="form-control" placeholder="" required=""  type="text">
+                                    <!-- Rua -->
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <span class="input-group-addon">Rua</span>
+                                        </div>
+                                        <div class="col">
+                                            <input id="rua" name="rua" class="form-control" placeholder="" required=""  type="text">
+                                        </div>
                                     </div>
-                                </div>
+                                    <!-- Numero -->
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <span class="input-group-addon">Nº*</span>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input id="num" name="num" class="form-control" placeholder="" required=""  type="text">
+                                        </div>
+                                    </div>
+                                    <!-- Bairro -->
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <span class="input-group-addon">Bairro</span>
 
-                                <!-- Status -->
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <label>Situação</label>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <input id="bairro" name="bairro" class="form-control" placeholder="" required=""  type="text">
+                                        </div>
                                     </div>
-                                    <div class="col-md-10">
-                                        <select required id="situacao" name="situacao" class="form-control">
-                                            <option value=""></option>
-                                            <option value="1">Ativo</option>
-                                            <option value="0">Inativo</option>
-                                        </select>
+                                    <!-- Cidade -->
+                                    <div class="row">
+                                        <div class="col-md-2    ">
+                                            <label>Cidade</label>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <input id="cidade" name="cidade" class="form-control" placeholder="" required=""  type="text">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <label>Tipo</label>
+                                    <!-- Estado -->
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label>Estado</label>                                        </div>
+                                        <div class="col-md-4">
+                                            <input id="estado" name="estado" class="form-control" placeholder="" required=""  type="text">
+                                        </div>
                                     </div>
-                                    <div class="col-md-10">
-                                        <select required id="tipo" name="tipo" class="form-control">
-                                            <option value=""></option>
-                                            <option value="1">Administrador</option>
-                                            <option value="2">Professor</option>
-                                            <option value="3">Responsável</option>
-                                            <option value="4">Aluno</option>
-                                        </select>
+
+                                    <!-- Status -->
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label>Situação</label>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <select required id="situacao" name="situacao" class="form-control">
+                                                <option value=""></option>
+                                                <option value="1">Ativo</option>
+                                                <option value="0">Inativo</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
-                                <!-- Serie -->
-                                <div id="oculto" class="row oculto">
-                                    <div class="col-md-2">
-                                        <label class="" for="selectbasic">Serie</label>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label>Tipo</label>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <select required id="tipo" name="tipo" class="form-control">
+                                                <option value=""></option>
+                                                <option value="1">Administrador</option>
+                                                <option value="2">Professor</option>
+                                                <option value="3">Responsável</option>
+                                                <option value="4">Aluno</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                    <div class="col-md-10">
-                                        <select required="" name="serie" class="form-control">
-                                            <option value=""></option>
-                                            <option value="Primeiro Ano">Primeiro Ano</option>
-                                            <option value="Segundo Ano">Segundo Ano</option>
-                                            <option value="Terceiro Ano">Terceiro Ano</option>
-                                            <option value="Quarto Ano">Quarto Ano</option>
-                                            <option value="Quinto Ano">Quinto Ano</option>
-                                            <option value="Sexto Ano">Sexto Ano</option>
-                                            <option value="Setimo Ano">Setimo Ano</option>
-                                            <option value="Oitavo Ano">Oitavo Ano</option>
-                                            <option value="Nono Ano">Nono Ano</option>
-                                        </select>
+
+                                    <!-- Serie -->
+                                    <div id="oculto" class="row oculto">
+                                        <div class="col-md-2">
+                                            <label class="" for="selectbasic">Serie</label>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <select  name="id_serie" class="form-control">
+                                                <option></option>
+                                                <?php
+                                                $sql = "SELECT * FROM serie";
+                                                $sql = $pdo->query($sql);
+                                                foreach ($sql->fetchAll() as $key) {
+                                                    echo "<option name='idUsuarios' value=\"";
+                                                    echo $key["id_serie"];
+                                                    echo "\">" . $key['id_serie'] . " - " . $key['descricao'] . "</option>";
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
-                                <!-- Select Responsáveis -->
-                                
-                                <div id="oculto2" class="row oculto2">
+                                    <!-- Select Responsáveis -->
+
+                                    <div id="oculto2" class="row oculto2">
                                         <div class="col-md-2">
                                             <label class="" for="selectbasic">Respons </label>
                                         </div>
                                         <div class="col-md-10">
-                                            <select class="form-control" title="Selecione um Responsável" name="idUsuarios">
+                                            <select name="responsavel" class="form-control" title="Selecione um Responsável" >
 
                                                 <option></option>
                                                 <?php
@@ -239,17 +248,18 @@ require_once '../controllers/connect.php';
                                             </select>
                                         </div>
                                     </div>
-                                
-
-
-                                <!-- Modal footer -->
-                                <div class="modal-footer">
-
-                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                                    <button type="submit" class="btn btn-primary">Cadastrar</button>
-
                                 </div>
-                            </div>
+
+
+
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+
+                                    </div>
+                                </div>
                         </form>
                     </div>
 
@@ -268,18 +278,16 @@ require_once '../controllers/connect.php';
             ?>
 
             <div class="container-fluid">
-                <table class="table table-striped table-hover table-sm" align="center" >
-                    <thead class="titulo table-warning"><th colspan="9">Lista de Usuários</th></thead>
+                <table class="table  table-hover table-sm" align="center" >
+                    <thead class="titulo table-warning"><th colspan="10">Lista de Usuários</th></thead>
                     <thead class="thead ">
                     <th class="">Codigo</th>
                     <th class="">Nome</th>
+                    <th class="">Sobrenome</th>
                     <th class="">Telefone</th>
                     <th class="">E-mail</th>
                     <th class="">Tipo</th>
                     <th class="">Situação</th>
-                    <th class="">Alterar</th>
-                    <th class="">Inativar</th>
-                    <th class="">Ver Detalhes</th>
                     </thead>
                     <hr>
                     <tbody>
@@ -287,6 +295,7 @@ require_once '../controllers/connect.php';
                             <tr>
                                 <td><?php echo $usuario['id']; ?></td>
                                 <td><?php echo $usuario['nome']; ?></td>
+                                <td><?php echo $usuario['sobrenome']; ?></td>
                                 <td><?php echo $usuario['telefone']; ?></td>
                                 <td><?php echo $usuario['email']; ?></td>
                                 <td><?php
@@ -320,9 +329,21 @@ require_once '../controllers/connect.php';
                                     }
                                     ?></td>
 
-                                <td><a href="formAltfuncionarios.php?id=<?php echo $usuario['id']; ?>" class="img-circle"><img src="../img/editar.png" alt="Alterar"/><a></td>
-                                            <td><a href="javascript:func()" onclick="inativar(<?php echo $usuario['id']; ?>)"><img src="../img/proibido.png" alt="Inativar"/></a></td>
-                                            <td><a href="formAltfuncionarios.php?id=<?php echo $usuario['id']; ?>"><img src="../img/lista.png" alt=""/><a></td>
+                                <td><a href="formAltfuncionarios.php?id=<?php echo $usuario['id']; ?>" class="img-circle">
+                                        <button type="button" class="btn btn-primary btn-sm">
+                                            Alterar
+                                        </button>
+                                        <a></td>
+                                            <td><a href="javascript:func()" onclick="inativar(<?php echo $usuario['id']; ?>)">
+                                                    <button type="button" class="btn btn-danger btn-sm">
+                                                        Inativar
+                                                    </button>
+                                                </a></td>
+                                            <td><a href="formAltfuncionarios.php?id=<?php echo $usuario['id']; ?>">
+                                                    <button type="button" class="btn btn-success btn-sm">
+                                                        Ver Detalhes
+                                                    </button>
+                                                    <a></td>
 
                                                         </tr>  
 
