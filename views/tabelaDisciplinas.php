@@ -13,21 +13,17 @@ require_once '../controllers/connect.php';
             <?php
             $rs = $pdo->prepare("SELECT * FROM disciplinas");
             $rs->execute();
-            
             ?>
 
 
             <div class="container-fluid">
-                <table class="table table-striped table-hover table-sm" align="center" >
+                <table class="table table-hover table-sm" align="center" >
                     <thead class="titulo table-success"><th colspan="7">Lista de Disciplinas</th></thead>
                     <thead class="thead ">
                     <th class="">Codigo</th>
                     <th class="">Disciplina</th>
                     <th class="">Descrição</th>
                     <th class="">Situação</th>
-                    <th class="">Alterar</th>
-                    <th class="">Inativar</th>
-                    <th class="">Ver Detalhes</th>
                     </thead>
                     <hr>
                     <tbody>
@@ -44,9 +40,15 @@ require_once '../controllers/connect.php';
                                     }
                                     ?></td>
 
-                                <td><a href="formAltfuncionarios.php?id=<?php echo $disciplina['id']; ?>" class="img-circle"><img src="../img/editar.png" alt="Alterar"/><a></td>
-                                            <td><a href="javascript:func()" onclick="inativar(<?php echo $disciplina['id']; ?>)"><img src="../img/proibido.png" alt="Inativar"/></a></td>
-                                            <td><a href="formAltfuncionarios.php?id=<?php echo $disciplina['id']; ?>"><img src="../img/lista.png" alt=""/><a></td>
+                                <td><a href="formAltfuncionarios.php?id=<?php echo $disciplina['id']; ?>" class="img-circle"> <button type="button" class="btn btn-primary btn-sm">
+                                            Alterar
+                                        </button><a></td>
+                                            <td><a href="javascript:func()" onclick="inativar(<?php echo $disciplina['id']; ?>)"><button type="button" class="btn btn-danger btn-sm">
+                                                        Inativar
+                                                    </button></a></td>
+                                            <td><a href="formAltfuncionarios.php?id=<?php echo $disciplina['id']; ?>"><button type="button" class="btn btn-success btn-sm">
+                                                        Ver Detalhes
+                                                    </button><a></td>
 
                                                         </tr>  
 
