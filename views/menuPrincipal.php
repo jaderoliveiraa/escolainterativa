@@ -31,16 +31,16 @@ require_once '../controllers/connect.php';
                     <a class="nav-link text-white" href="../views/cadUsuarios.php">Usuários <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="../views/cadAlunos.php">Alunos <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link text-white" href="cadDisciplinas.php">Disciplinas <span class="sr-only">(current)</span></a>
                 </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="cadNotas.php">Notas <span class="sr-only">(current)</span></a>
                     </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Relatórios</a>
+                    <a class="nav-link text-white" href="../views/adminRelatorios.php">Relatórios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="../views/config.php">Configurações</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="../views/faleConosco.php">Fale conosco</a>
