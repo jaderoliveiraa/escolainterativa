@@ -21,7 +21,7 @@ $responsavel = $_POST['responsavel'];
 $situacao = $_POST['situacao'];
 
 if ($_POST['id_serie'] == NULL) {
-    $serie = 2001;
+    $id_serie = 2001;
 } else {
     
 }
@@ -79,34 +79,10 @@ $stmt->bindParam(':responsavel', $responsavel);
 $stmt->bindParam(':situacao', $situacao);
 
 if ($stmt->execute()) {
-    echo "<script> alert('Usuário Inserida com Sucesso!'); window.location.href = '../views/cadUsuarios.php';</script>";
+    echo "<script> alert('Usuário Inserido com Sucesso!'); window.location.href = '../views/cadUsuarios.php';</script>";
 }else{
     echo "Erro ao cadastrar";
     print_r($stmt->errorInfo());
 }
 
-/*$sql = "INSERT INTO usuarios SET nome = '$nome', "
-        . "sobrenome = '$sobrenome' ,"
-        . "dataNasc = '$dataNasc',"
-        . "sexo = '$sexo',"
-        . "telefone = '$telefone',"
-        . "email = '$email',"
-        . "senha =' $senha',"
-        . "cep = '$cep',"
-        . "rua = '$rua',"
-        . "num = '$num',"
-        . "bairro = '$bairro',"
-        . "cidade = '$cidade',"
-        . "estado = '$estado',"
-        . "id_serie = '$id_serie',"
-        . "tipo = '$tipo';" 
-        . "responsavel = '$responsavel',"
-        . "situacao = '$situacao'";
 
-if ($pdo->query($sql)) {
-    echo "<script> alert('Dados Inseridos com Sucesso!'); window.location.href = '../views/cadUsuarios.php';</script>";
-    //header("location:../formularios/formcadastro.php");
-} else {
-    echo "Não se pode inserir campos vazios!";
-    echo "<script> alert('Usuário não Inserido verifique e tende novamente!');</script>";
-}*/
