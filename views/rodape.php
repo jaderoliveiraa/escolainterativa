@@ -3,7 +3,7 @@
 
   <!-- Copyright -->
   <div class="footer-copyright text-center py-2 ">© 2020 Copyright:
-    <a href="#"> Infotech</a>
+    <a href="#" class="text-white-50"> Infotech</a>
   </div>
   <!-- Copyright -->
 
