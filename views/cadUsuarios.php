@@ -310,7 +310,7 @@ require_once '../controllers/connect.php';
                                 }
                                 ?></td>
 
-                            <td><a href="formAltfuncionarios.php?id=<?php echo $usuario['id']; ?>" class="img-circle">
+                            <td><a href="formAltUsuarios.php?id=<?php echo $usuario['id']; ?>" class="img-circle">
                                     <button type="button" class="btn btn-primary btn-sm">
                                         Alterar
                                     </button>
@@ -332,11 +332,7 @@ require_once '../controllers/connect.php';
 
                                                 </tbody>
                                                 </table><br><br><br>
-                                                </div>
-        
-    
-
-
+                                                </div>    
 
                                                 <?php
                                                 require './rodape.php';
