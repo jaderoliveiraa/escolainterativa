@@ -130,7 +130,7 @@ require_once '../controllers/connect.php';
                                 <!-- Modal footer -->
                                 <div class="modal-footer">
 
-                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                                    <button type="reset" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
                                     <button type="submit" class="btn btn-primary">Lançar</button>
 
                                 </div>
