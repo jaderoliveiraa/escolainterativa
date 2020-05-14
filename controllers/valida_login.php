@@ -16,7 +16,7 @@
 
         if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['senha']) && !empty($_POST['senha'])) {
             $email = addslashes($_POST['email']);
-            $senha = addslashes($_POST['senha']);
+            $senha = addslashes(md5($_POST['senha']));
             $sql = $pdo->prepare("SELECT * FROM usuarios WHERE email = :email");
             $sql->bindValue(":email", $_POST['email']);
             $sql->execute();
