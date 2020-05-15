@@ -24,3 +24,10 @@ function inativar(id){
         window.location.href = "../controllers/inativaUsuarios.php?id="+id;
     }
 }
+function ativar(id){
+    var resposta = confirm("Deseja Ativar o Usuário?");
+    if(resposta === true){
+        alert('O Usuário agora está ATIVO!');
+        window.location.href = "../controllers/ativaUsuarios.php?id="+id;
+    }
+}
