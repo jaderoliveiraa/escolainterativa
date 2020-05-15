@@ -11,6 +11,7 @@ require_once '../controllers/connect.php';
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="../system/js/form.js" type="text/javascript"></script>
     <script src="../system/js/divs.js" type="text/javascript"></script>
+    <script src="../system/js/funcoes.js" type="text/javascript"></script>
 
 </head>
 <body>
@@ -320,7 +321,7 @@ require_once '../controllers/connect.php';
                                                     Inativar
                                                 </button>
                                             </a></td>
-                                        <td><a href="formAltfuncionarios.php?id=<?php echo $usuario['id']; ?>">
+                                            <td><a href="detalhesUsuarios.php?id=<?php echo $usuario['id']; ?>">
                                                 <button type="button" class="btn btn-success btn-sm">
                                                     Ver Detalhes
                                                 </button>
