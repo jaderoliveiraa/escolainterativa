@@ -20,9 +20,12 @@ require_once '../controllers/connect.php';
 
     <form class="container-fluid" action="../controllers/controllerAluno.php" method="POST">
         <!-- Botão para abrir Modal Aluno -->
-        </br><a title='Imprimir conteúdo' href='javascript:window.print()' class="text-white"><button type="button" class="btn btn-primary" >
-            <b>Imprimir</b>
-        </button></a>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" onclick='history.go(-1)'>Voltar</button>
+            <a title='Imprimir conteúdo' href='javascript:window.print()' class="text-white">
+                <button type="button" class="btn btn-primary" ><b>Imprimir</b></button>
+            </a>
+        </div>
 
         <!-- O Modal -->
         <div class="modal $modal-fade-transform: scale(.8)" id="modalAluno">
@@ -245,12 +248,10 @@ require_once '../controllers/connect.php';
                 </div>
             </div>
         </div>
-<?php
-
-require './tabelaAlunos.php';
-require './rodape.php';
-
-?>
+        <?php
+        require './tabelaAlunos.php';
+        require './rodape.php';
+        ?>
 
 
     </form>
