@@ -3,6 +3,7 @@
 <?php
 require "menuPrincipal.php";
 require_once '../controllers/connect.php';
+require '../system/session.php';
 ?>
 <!DOCTYPE html>
 <head>
