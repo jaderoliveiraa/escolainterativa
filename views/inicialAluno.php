@@ -1,8 +1,6 @@
 <?php
 include_once './menuAluno.php';
-if (empty($_SESSION['email'])&& empty($_SESSION['nome'])) {
-    header("location:../index.php");
-}
+require '../system/session.php';
 ?>
 <html>
     <head>
