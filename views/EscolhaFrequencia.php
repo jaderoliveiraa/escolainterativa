@@ -2,6 +2,7 @@
 <?php
 include '../controllers/connect.php';
 require './menuPrincipal.php';
+require '../system/session.php';
 ?>
 <html>
     <head>
