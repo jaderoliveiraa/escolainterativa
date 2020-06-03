@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 require_once './menuPrincipal.php';
+require '../system/session.php';
 ?>
 <html>
     <head>
