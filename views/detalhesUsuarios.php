@@ -2,6 +2,7 @@
 <?php
 include_once '../controllers/connect.php';
 include_once './rodape.php';
+require '../system/session.php';
 $id = 0; //definir id como "0"
 if (isset($_GET['id']) && empty($_GET['id']) == false) {
     $id = addslashes($_GET['id']);
