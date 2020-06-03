@@ -2,6 +2,7 @@
 <?php
 include '../menuPrincipal.php';
 include_once '../../controllers/connect.php';
+require '../system/session.php';
 ?>
 <html>
     <head>
