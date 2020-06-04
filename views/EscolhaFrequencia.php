@@ -2,7 +2,6 @@
 <?php
 include '../controllers/connect.php';
 require './menuPrincipal.php';
-require '../system/session.php';
 ?>
 <html>
     <head>
@@ -13,7 +12,7 @@ require '../system/session.php';
         <div class="container">
             <div class="container-sm"></br>
                 <div class="container">
-                    <form class="container-fluid" action="frequencia.php" method="POST">
+                    <form class="container-fluid" action="frequencia.php" method="GET">
 
                         <!-- Serie -->
                         <div id="oculto" class="row oculto">
