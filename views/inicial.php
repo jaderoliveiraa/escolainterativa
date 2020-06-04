@@ -1,7 +1,8 @@
 <?php
 require '../controllers/connect.php';
 require '../views/menuPrincipal.php';
-require '../system/session.php';
+session_start();
+
 ?>
 <html>
     <head>
