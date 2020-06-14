@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+require_once '../system/session.php';
 ?>
 <html>
 <head>
@@ -29,14 +30,29 @@
                 <li class="nav-item">
                     <a class="nav-link text-white" href="../views/faleConoscoAluno.php">Fale conosco</a>
                 </li>
-                <form class="form-inline my-2 my-lg-0">
-
-                    <button class="btn btn-dark my-2 my-sm-0" type="submit"><a href="../system/sair.php">Sair</a></button>
-                </form>
+                
             </ul>
 
 
         </div>
+        <?php
+
+            function saudacao($nome = '') {
+                date_default_timezone_set('America/Sao_Paulo');
+                $data = date("d/m/Y");
+                $hora = date('H');
+                if ($hora >= 6 && $hora <= 12) {
+                    echo "Bom dia " . $_SESSION["nome"] . "! Hoje é Dia " . $data . "   ";
+                } else if ($hora > 12 && $hora <= 18) {
+                    echo "Boa tarde " . $_SESSION["nome"] . "! Hoje é Dia " . $data . "   ";
+                } else {
+                    echo "Bom noite " . $_SESSION["nome"] . "! Hoje é Dia " . $data . "   ";
+                }
+            }
+            ?>
+
+            <label><?php echo saudacao() ?></label>
+            <button class="btn btn-dark btn-md pull-right" type="submit" ><a href="../system/sair.php">   Sair   </a></button>
     </nav>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <?php
 include_once './menuProfessor.php';
 require '../controllers/connect.php';
-require '../system/session.php';
+require_once '../system/session.php';
 ?>
 <html>
     <head>

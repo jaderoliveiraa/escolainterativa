@@ -1,6 +1,7 @@
 <?php
 include "menuPrincipal.php";
 require_once '../controllers/connect.php';
+require_once '../system/session.php';
 ?>
 <!DOCTYPE html>
 <head>
@@ -194,9 +195,11 @@ require_once '../controllers/connect.php';
                                             <option value="2">Professor</option>
                                             <option value="3">Responsável</option>
                                             <option value="4">Aluno</option>
+                                            <option value="5">Secretária(o)</option>
                                         </select>
                                     </div>
                                 </div>
+                                
                                 <!-- Serie -->
                                 <div id="oculto" class="row oculto">
                                     <div class="col-md-2">
@@ -219,6 +222,7 @@ require_once '../controllers/connect.php';
                                     </div>
 
                                 </div>
+                                
                                 <!-- Select Responsáveis -->
                                 <div id="oculto2" class="row oculto2">
                                     <div class="col-md-2">
@@ -240,6 +244,28 @@ require_once '../controllers/connect.php';
                                         </select>
                                     </div>
                                 </div>
+                                
+                                <!-- Select Turma -->
+                                <div id="oculto3" class="row oculto3">
+                                    <div class="col-md-2">
+                                        <label class="" for="selectbasic">Turma </label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <select id="oculto "name="responsavel" class="form-control" title="Selecione um Responsável" >
+
+                                            <option></option>
+                                            <?php
+                                            $sql3 = "SELECT * FROM turma ORDER by letra";
+                                            $letra = $pdo->query($sql3);
+                                            foreach ($letra->fetchAll() as $key) {
+                                                echo "<option name='idUsuarios' value=''";
+                                                echo "\">" ."COD ". " - ". $key['id_turma'] . " | " . " Turma " . "'" .$key['letra']. "'" . "</option>";
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                
                                 <!-- Modal footer -->
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
@@ -297,6 +323,10 @@ require_once '../controllers/connect.php';
                                         break;
                                     case 4:
                                         echo 'Aluno';
+
+                                        break;
+                                    case 5:
+                                        echo 'Secretaria(o)';
 
                                         break;
 

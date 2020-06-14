@@ -1,7 +1,7 @@
 <?php
 require '../controllers/connect.php';
 require './menuResponsavel.php';
-require '../system/session.php';
+require_once '../system/session.php';
 ?>
 <html>
     <head>

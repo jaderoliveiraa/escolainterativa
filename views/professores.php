@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 require_once '../controllers/connect.php';
-require '../system/session.php';
+require_once '../system/session.php';
 ?>
 <html>
     <head>

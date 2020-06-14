@@ -2,6 +2,7 @@
 <?php
 include '../controllers/connect.php';
 require './menuPrincipal.php';
+require_once '../system/session.php';
 ?>
 <html>
     <head>
@@ -16,84 +17,129 @@ require './menuPrincipal.php';
         <title>Lista de Frequência</title>
     </head>
     <body>
-        <form>
-            <!-- Tabela-->
-            <div class="container-fluid">
-                <?php
-                $disciplinas = $_GET['disciplinas'];
-                $id_serie = $_GET['id_serie'];
-                $rs = $pdo->prepare("SELECT * FROM usuarios WHERE tipo = 4 AND id_serie = $id_serie");
-                $rs->execute();;
-                ?>
-
-                <div class="container-fluid">
-                    <div>
-                        <Label>Disciplina</Label>
-                        <input id="disciplinas" name="disciplinas" class="form-control" placeholder=""  type="text" value="<?php echo $disciplinas ?>" readonly>
-                        <label>Serie</label>
-                        <input id="serie" name="id_serie" class="form-control" placeholder=""  type="text" value="<?php echo $id_serie ?>" readonly>
-                    </div>
+        <!-- Tabela-->
+        <div class="container-fluid">
+            <?php
+            $disciplinas = $_POST['disciplinas'];
+            $id_serie = $_POST['id_serie'];
+            $data = $_POST['data'];
+            $rs = $pdo->prepare("SELECT * FROM usuarios WHERE tipo = 4 AND id_serie = $id_serie");
+            $rs->execute();
+            ?>
+            <div class="container">
+                <div class="container-sm">
                     <table class="table table-striped table-hover table-sm" align="center" >
-                        <thead class="titulo table-info"><th colspan="9">Lista de Alunos</th></thead>
-                        <thead class="thead ">
-                        <th class="">Codigo</th>
-                        <th class="">Nome</th>
-                        <th class="">Telefone</th>
-                        <th class="">E-mail</th>
-                        <th class="">Serie</th>
-                        <th class="">Presença</th>
-                        <th class="">Status</th>
-                        </thead>
-                        <hr>
-                        <tbody>
-                            <?php while ($aluno = $rs->fetch(PDO::FETCH_ASSOC)) { ?>       
-                                <tr>
-                                    <td><?php echo $aluno['id']; ?></td>
-                                    <td><?php echo $aluno['nome']; ?></td>
-                                    <td><?php echo $aluno['telefone']; ?></td>
-                                    <td><?php echo $aluno['email']; ?></td>
-                                    <td><?php echo $aluno['id_serie']; ?></td>
-                                    <td>
-                                    <button value="true" onclick="send(<?php echo $aluno['id']; ?>, this)" class="btn btn-success btn-sm">Presente</button>
-                <button value="false" onclick="send(<?php echo $aluno['id']; ?>, this)" class="btn btn-danger btn-sm">Faltou</button>
-
-                                    </td>
-                                </tr>  
-
-                            <?php } ?>
-
-                        </tbody>
-                    </table><br><br><br>
+                        <tr>
+                            <td>Data</td>
+                            <td>Disciplina</td>
+                            <td>Serie</td>
+                        </tr>
+                        <tr>
+                            <td><?php echo $data ?></td>
+                            <td><?php echo $disciplinas ?></td>
+                            <td><?php echo $id_serie ?></td>
+                        </tr>
+                    </table>
                 </div>
-
             </div>
-        </form>
-        <script>
+            <table class="table table-striped table-hover table-sm" align="center" >
+                <thead class="titulo table-info"><th colspan="9">Lista de Alunos</th></thead>
+                <thead class="thead ">
+                <th class="">Codigo</th>
+                <th class="">Nome</th>
+                <th class="">Telefone</th>
+                <th class="">E-mail</th>
+                <th class="">Serie</th>
+                <th class="">Presença</th>
+                <th class="">Status</th>
+                </thead>
+                <hr>
+                <tbody>
+                    <?php while ($aluno = $rs->fetch(PDO::FETCH_ASSOC)) { ?>       
+                        <tr>
+                            <td><?php echo $aluno['id']; ?></td>
+                            <td><?php echo $aluno['nome']; ?></td>
+                            <td><?php echo $aluno['telefone']; ?></td>
+                            <td><?php echo $aluno['email']; ?></td>
+                            <td><?php echo $aluno['id_serie']; ?></td>
+                            <td><div id="jq">
+                                    <button class="btn btn-success btn-sm" value="true" onclick="send(<?php echo $aluno['id']; ?>, <?php echo $aluno['id_serie']; ?>, <?php echo $disciplinas ?>, this)" >Presente</button>
+                                    <button class="btn btn-danger btn-sm" value="false" onclick="send(<?php echo $aluno['id']; ?>, <?php echo $aluno['id_serie']; ?>, <?php echo $disciplinas ?>, this)" >Faltou</button>
+                                </div>
+                            </td>
+                            <td><div id="output">
+                                    <?php
+                                    $rs2 = $pdo->prepare("SELECT * FROM frequencia WHERE id_serie = $id_serie");
+                                    $rs2->execute();
+                                    $frequencia = $rs2->fetch(PDO::FETCH_ASSOC);
+                                    echo $frequencia['status'];
 
-            function send(id, element) {
-                let form = new FormData();
+                                    if (isset($frequencia['status'])) {
+                                        switch ($frequencia['status']) {
+                                            case 1:
+                                                echo "Presente";
+                                                break;
+                                            case 0:
+                                                echo "Ausente";
+                                                break;
 
-                form.append('id', id);
-                form.append('status', element.value);
+                                            default:
+                                                echo "Não informado";
+                                                break;
+                                        }
+                                    } else {
+                                        echo 'Não informado';
+                                    }
+                                    ?>
+                                </div></td>
+                        </tr>  
+
+                    <?php } ?>
+
+                </tbody>
+            </table><br><br><br>
+        </div>
+
+    </div>
+    <script>
+
+        function send(id, id_serie, disciplinas, element) {
+            let form = new FormData();
+
+            form.append('id', id);
+            form.append('id_serie', id_serie);
+            form.append('disciplinas', disciplinas);
+            form.append('status', element.value);
+            form.append('data', data);
 
 
-                fetch("../controllers/controllerFrequencia.php", {
-                    method:"GET",
-                    body: form
-                })
-                .then(response => response.json())
-                .then(response => {
-                    
-                })
+            fetch("../controllers/controllerFrequencia.php", {
+                method: "POST",
+                body: form
+            })
+                    .then(response => response.json())
+                    .then(response => {
+
+                    });
+
+            const $output = $('#output');
+            const btns_jq = $('#jq .btn');
+            btns_jq.click(function () {
+                let str = $(this).text();
+                $output.text(str);
+            });
 
 
-            }
-       
+        }
+
+
     </script>
 
-    </body>
 
-    <?php
-    require_once './rodape.php';
-    ?>
+
+</body>
+
+<?php
+require_once './rodape.php';
+?>
 </html>

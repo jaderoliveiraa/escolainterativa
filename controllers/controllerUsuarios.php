@@ -19,6 +19,7 @@ $id_serie = $_POST['id_serie'];
 $tipo = $_POST['tipo'];
 $responsavel = $_POST['responsavel'];
 $situacao = $_POST['situacao'];
+$turma = $_POST['turma'];
 
 if ($_POST['id_serie'] == NULL) {
     $id_serie = 2001;
@@ -58,7 +59,8 @@ $sql = "INSERT INTO usuarios (nome,"
         . ":id_serie,"
         . ":tipo,"
         . ":responsavel,"
-        . ":situacao)";
+        . ":situacao,"
+        . ":turma)";
 $stmt = $pdo->prepare($sql);
 $stmt->bindParam(':nome', $nome);
 $stmt->bindParam(':sobrenome', $sobrenome);

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 include_once './menuProfessor.php';
+require_once '../system/session.php';
 ?>
 <html>
     <head>

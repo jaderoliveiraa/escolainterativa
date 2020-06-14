@@ -2,7 +2,7 @@
 <?php
 require_once './menuPrincipal.php';
 require_once '../controllers/connect.php';
-require '../system/session.php';
+require_once '../system/session.php';
 ?>
 <html>
     <head><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -63,19 +63,31 @@ require '../system/session.php';
                                     </div>
                                 </div>
 
-                                <!-- Select do Tipo-->
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <label class="" for="selectbasic">Tipo</label>
-                                    </div>
-                                    <div class="col-md-10">
-                                        <select required id="tipo" name="tipo" class="form-control">
-                                            <option value=""></option>
-                                            <option value="Parcial">Parcial</option>
-                                            <option value="Final">Final</option>
-                                        </select>
+                                
+                                <!-- Select Disciplina -->
+                                <div class="form-group" required="">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label class="" for="selectbasic">Disciplina </label>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <select class="form-control" title="Selecione uma Disciplina" name="id_disciplina">
+
+                                                <option></option>
+                                                <?php
+                                                $sql = "SELECT * FROM disciplinas ORDER by id";
+                                                $sql = $pdo->query($sql);
+                                                foreach ($sql->fetchAll() as $key) {
+                                                    echo "<option name='idDisciplinas' value=\"";
+                                                    echo $key["id"];
+                                                    echo "\">" . $key['id'] . " - " . $key['nome'] . "</option>";
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
+                                
                                 <!-- Select do Período-->
                                 <div class="row">
                                     <div class="col-md-2">
@@ -91,31 +103,23 @@ require '../system/session.php';
                                             <option value="Recuperação Final">Recuperação Final</option>
                                         </select>
                                     </div>
-                                </div>
-
-                                <!-- Select Aluno -->
-                                <div class="form-group" required="">
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <label class="" for="selectbasic">Disciplina </label>
-                                        </div>
-                                        <div class="col-md-10">
-                                            <select class="form-control" title="Selecione uma Disciplina" name="id_disciplina">
-
-                                                <option></option>
-                                                <?php
-                                                $sql = "SELECT * FROM disciplinas ORDER by nome";
-                                                $sql = $pdo->query($sql);
-                                                foreach ($sql->fetchAll() as $key) {
-                                                    echo "<option name='idDisciplinas' value=\"";
-                                                    echo $key["id"];
-                                                    echo "\">" . $key['id'] . " - " . $key['nome'] . "</option>";
-                                                }
-                                                ?>
-                                            </select>
-                                        </div>
+                                </div></br>
+                                
+                                <!-- Select do Tipo-->
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <label class="" for="selectbasic">Tipo</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <select required id="tipo" name="tipo" class="form-control">
+                                            <option value=""></option>
+                                            <option value="Parcial">Parcial</option>
+                                            <option value="Final">Final</option>
+                                        </select>
                                     </div>
                                 </div>
+                                </br>
+
 
                                 <!-- nome -->
                                 <div class="container">

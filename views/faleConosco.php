@@ -2,6 +2,7 @@
 <?php
 require_once './menuPrincipal.php';
 require '../system/session.php';
+require_once '../system/session.php';
 ?>
 <html>
     <head>

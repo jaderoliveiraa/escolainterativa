@@ -1,6 +1,6 @@
 <?php
 require '../controllers/connect.php';
-require '../views/menuPrincipal.php';
+require '../views/menuSecretaria.php';
 require_once '../system/session.php';
 
 ?>
@@ -36,7 +36,7 @@ require_once '../system/session.php';
                             </div></a>
                     </div>
                     <div class="col-3">
-                        <a href="adminRelatorios.php"><div class="card-wrapper" style="width: 15rem;">
+                        <a href="#"><div class="card-wrapper" style="width: 15rem;">
                                 <img class="card-img-top" src="../img/report.png" alt="Imagem de capa do card">
                                 <div class="card-body text-center">
                                     <h2 class="card-title">Relatórios</h2>

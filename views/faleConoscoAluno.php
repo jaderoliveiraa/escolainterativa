@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 require_once './menuAluno.php';
+require_once '../system/session.php';
 ?>
 <html>
     <head>

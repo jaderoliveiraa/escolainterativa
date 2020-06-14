@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 require_once './menuResponsavel.php';
+require_once '../system/session.php';
 ?>
 <html>
     <head>

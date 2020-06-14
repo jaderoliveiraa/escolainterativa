@@ -2,6 +2,7 @@
 <?php
 include '../controllers/connect.php';
 require './menuPrincipal.php';
+require_once '../system/session.php';
 ?>
 <html>
     <head>
@@ -12,7 +13,7 @@ require './menuPrincipal.php';
         <div class="container">
             <div class="container-sm"></br>
                 <div class="container">
-                    <form class="container-fluid" action="frequencia.php" method="GET">
+                    <form class="container-fluid" action="frequencia.php" method="POST">
 
                         <!-- Serie -->
                         <div id="oculto" class="row oculto">
@@ -54,7 +55,17 @@ require './menuPrincipal.php';
                                     ?>
                                 </select>
                             </div>
-                        </div>
+                        </div></br>
+                        <!-- Data -->
+                        <div id="oculto" class="row oculto">
+                            <div class="col-md-2">
+                                <label class="" >Data</label>
+                            </div>
+                            <div class="col-md-10">
+                                <input clas s="form-control input-sm" id="data" name="data" type="date">
+                            </div>
+                            
+                        </div></br>
 
                         <!-- Modal footer -->
                         <div class="modal-footer">

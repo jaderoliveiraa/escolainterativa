@@ -2,7 +2,7 @@
 <?php
 require_once './menuPrincipal.php';
 require_once '../controllers/connect.php';
-require '../system/session.php';
+require_once '../system/session.php';
 ?>
 <html>
     <head>
@@ -23,7 +23,7 @@ require '../system/session.php';
                             </div></a>
                     </div>
                     <div class="col-3">
-                        <a href="#"><div class="card-wrapper" style="width: 15rem;">
+                        <a href="relBoletim.php"><div class="card-wrapper" style="width: 15rem;">
                                 <img class="card-img-top" src="../img/BOLETIM.png" alt="Imagem de capa do card">
                                 <div class="card-body text-center">
                                     <h2 class="card-title">Boletim Online</h2>

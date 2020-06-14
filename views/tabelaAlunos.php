@@ -28,7 +28,7 @@ require_once '../controllers/connect.php';
                     </thead>
                     <hr>
                     <tbody>
-                        <?php while ($aluno = $rs->fetch(PDO::FETCH_ASSOC)) { ?>       
+                            <?php while ($aluno = $rs->fetch(PDO::FETCH_ASSOC)) { ?>       
                             <tr>
                                 <td><?php echo $aluno['id']; ?></td>
                                 <td><?php echo $aluno['nome']; ?></td>

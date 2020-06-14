@@ -42,7 +42,7 @@ require_once '../system/session.php';
                         <a class="nav-link text-white" href="../views/adminRelatorios.php">Relatórios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="../views/configAdmin.php">Configurações</a>
+                        <a class="nav-link text-white" href="../views/configSecretaria.php">Configurações</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="../views/faleConosco.php">Fale conosco</a>
@@ -60,11 +60,11 @@ require_once '../system/session.php';
                 $data = date("d/m/Y");
                 $hora = date('H');
                 if ($hora >= 6 && $hora <= 12) {
-                    echo "Bom dia " . $_SESSION["nome"] . "! Hoje é Dia " . $data . "    .";
+                    echo "Bom dia " . $_SESSION["nome"] . "! Hoje é Dia " . $data . "   ";
                 } else if ($hora > 12 && $hora <= 18) {
-                    echo "Boa tarde " . $_SESSION["nome"] . "! Hoje é Dia " . $data . "     .";
+                    echo "Boa tarde " . $_SESSION["nome"] . "! Hoje é Dia " . $data . "   ";
                 } else {
-                    echo "Boa noite " . $_SESSION["nome"] . "! Hoje é Dia " . $data . "     .";
+                    echo "Bom noite " . $_SESSION["nome"] . "! Hoje é Dia " . $data . "   ";
                 }
             }
             ?>

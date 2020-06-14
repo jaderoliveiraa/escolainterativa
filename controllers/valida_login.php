@@ -11,6 +11,7 @@
         global $menu;
         require 'connect.php';
         require '../system/usuarioClass.php';
+        session_start();
 
 
 
@@ -40,6 +41,9 @@
                                 break;
                             case 4:
                                 header("location:../views/inicialAluno.php");
+                                break;
+                            case 5:
+                                header("location:../views/inicialSecretaria.php");
                                 break;
 
                             default:
